@@ -1,0 +1,47 @@
+{
+  "index.qmd": {
+    "index.html": "a052bb5a"
+  },
+  "intro.qmd": {
+    "intro.html": "141d451f"
+  },
+  "summary.qmd": {
+    "summary.html": "ced52611"
+  },
+  "references.qmd": {
+    "references.html": "a8195a18"
+  },
+  "try.qmd": {
+    "try.html": "533eece3"
+  },
+  "Pengenalan Computer Vision dan Python.qmd": {
+    "Pengenalan Computer Vision dan Python.html": "b5772e80"
+  },
+  "Python.qmd": {
+    "Python.html": "ad9ddddc"
+  },
+  "Modul 1. Pengenalan Computer Vision dan Python.qmd": {
+    "Modul 1. Pengenalan Computer Vision dan Python.html": "0d86f935"
+  },
+  "Modul 2. Python.qmd": {
+    "Modul 2. Python.html": "304a8f7f"
+  },
+  "Dasar-dasar Image Processing.qmd": {
+    "Dasar-dasar Image Processing.html": "4cac1611"
+  },
+  "Feature Extraction and Matching.qmd": {
+    "Feature Extraction and Matching.html": "294dfa46"
+  },
+  "1_Pengenalan_Computer_Vision_dan_Python.qmd": {
+    "1_Pengenalan_Computer_Vision_dan_Python.html": "540f8368"
+  },
+  "3_Dasar_dasar_Image_Processing.qmd": {
+    "3_Dasar_dasar_Image_Processing.html": "52a83831"
+  },
+  "2_Python.qmd": {
+    "2_Python.html": "7bb5cb3a"
+  },
+  "4_Feature_Extraction_and_Matching.qmd": {
+    "4_Feature_Extraction_and_Matching.html": "724069bb"
+  }
+}

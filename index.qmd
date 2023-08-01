@@ -1,0 +1,54 @@
+# Computer Vision {.unnumbered}
+
+## A. Tentang Buku ini
+<br>
+<p>Buku ini dirancang sebagai panduan komprehensif untuk memahami dan menerapkan teknik computer vision menggunakan bahasa pemrograman Python. Buku ini ditujukan untuk individu yang berminat dalam bidang computer vision, baik mereka yang baru memulai perjalanan mereka atau mereka yang sudah memiliki pengalaman dasar dalam bidang ini dan ingin memperdalam pengetahuan mereka.</p>
+<br>
+<p>Buku ini mencakup berbagai topik mulai dari konsep dasar computer vision dan image processing, hingga teknik machine learning dan deep learning yang canggih yang digunakan dalam aplikasi computer vision. Selain itu, buku ini juga mencakup bagian penting tentang etika dalam computer vision, suatu topik yang sering diabaikan tetapi sangat penting.
+</p>
+<br>
+Dalam buku ini, pembaca akan belajar melalui penjelasan konsep, contoh kode, gambar, diagram, latihan, dan proyek praktis. Tujuan utama buku ini adalah untuk memberikan pemahaman yang solid tentang konsep dasar dan lanjutan dalam computer vision dan bagaimana menerapkannya dalam situasi dunia nyata menggunakan Python.
+
+## B. Pengenalan Kursus Computer Vision dan Python
+Kursus ini bertujuan untuk memperkenalkan Anda pada konsep dan praktik Computer Vision menggunakan Python. Selama kursus ini, Anda akan mempelajari dasar-dasar Computer Vision dan mengapa Python menjadi bahasa pemrograman yang populer dalam bidang ini.
+
+Hal yang akan dipelajari dalam kursus ini meliputi:  
+
+
+**Module 1**: Pengenalan Computer Vision dan Python
+Pada modul ini, kita akan mempelajari pengenalan dasar tentang Computer Vision dan Python. Kami akan memahami definisi dan sejarah Computer Vision, serta aplikasi dan contoh penggunaannya dalam kehidupan sehari-hari. Kami juga akan membahas perbedaan antara Computer Vision dan Image Processing. Selain itu, Anda akan diperkenalkan dengan Python, termasuk sejarah, keunggulan, cara instalasi, dan struktur bahasa pemrograman Python. Kami akan memperkenalkan beberapa library Python yang umum digunakan dalam Computer Vision, seperti OpenCV, TensorFlow, dan Keras, dan cara menginstal dan menggunakannya.
+
+**Module 2**: Dasar-dasar Image Processing
+Pada modul ini, kami akan membahas dasar-dasar Image Processing. Anda akan mempelajari definisi dan sejarah Image Processing, serta aplikasi dan contoh penggunaannya. Kami akan memperkenalkan konsep dasar dalam pemrosesan citra, termasuk pengenalan citra digital dan operasi dasar pada citra seperti transformasi, filtering, dan edge detection. Anda juga akan belajar tentang penggunaan library Python seperti OpenCV, PIL/Pillow, dan scikit-image untuk operasi dasar pemrosesan citra. Modul ini akan mencakup latihan praktik untuk menerapkan operasi dasar tersebut pada dataset gambar menggunakan Python.
+
+**Module 3**: Feature Extraction and Matching
+Modul ini akan membahas tentang Feature Extraction dan Matching dalam Computer Vision. Kami akan menjelaskan definisi dan kegunaan Feature Extraction, serta memperkenalkan beberapa metode Feature Extraction seperti SIFT dan HOG. Anda akan mempelajari prinsip kerja dan implementasi SIFT dan HOG menggunakan Python dan OpenCV. Selain itu, kami juga akan membahas tentang Feature Matching, termasuk pengenalan metode-metode Feature Matching dan implementasinya menggunakan Python dan OpenCV. Modul ini akan melibatkan praktik implementasi SIFT, HOG, dan Feature Matching pada dataset gambar menggunakan Python dan OpenCV.
+
+**Module 4**: Computer Vision dan Machine Learning
+Pada modul ini, kami akan menjelaskan hubungan antara Computer Vision dan Machine Learning. Anda akan mempelajari definisi dan sejarah Machine Learning, serta aplikasinya dalam Computer Vision. Kami akan membahas Klasifikasi Gambar, termasuk prinsip kerja dan implementasinya dengan Machine Learning menggunakan Python, TensorFlow, dan Keras. Selain itu, kami juga akan membahas Object Detection, termasuk prinsip kerja dan implementasinya dengan Machine Learning menggunakan Python, TensorFlow, dan Keras. Modul ini akan mencakup praktik implementasi Klasifikasi Gambar dan Object Detection pada dataset gambar menggunakan Python, TensorFlow, dan Keras.
+
+**Module 5**: Deep Learning untuk Computer Vision
+Pada modul ini, kami akan memperkenalkan Deep Learning dalam Computer Vision. Anda akan mempelajari definisi dan sejarah Deep Learning, perbedaan antara Machine Learning dan Deep Learning, serta aplikasinya dalam Computer Vision. Kami akan menjelaskan Neural Networks dan Convolutional Neural Networks (CNN), serta prinsip kerja CNN dalam Computer Vision. Anda akan belajar menggunakan library Python seperti TensorFlow dan Keras untuk membangun dan melatih model CNN. Modul ini akan mencakup praktik membangun dan melatih model CNN dengan Python, TensorFlow, dan Keras, serta mengaplikasikannya pada dataset gambar untuk tugas klasifikasi.
+
+**Module 6**: Object Detection dan Segmentation
+Pada modul ini, kami akan membahas tentang Object Detection dan Image Segmentation dalam Computer Vision. Anda akan mempelajari definisi, metode, dan teknik dalam Object Detection, serta pengenalan Image Segmentation dan perbedaannya dengan Object Detection. Kami akan memperkenalkan model-state-of-the-art seperti YOLO dan Mask R-CNN, dan penggunaan library Python seperti TensorFlow dan Keras untuk mengimplementasikan model tersebut. Modul ini akan melibatkan praktik implementasi teknik Object Detection dan Image Segmentation pada dataset gambar menggunakan Python, TensorFlow, dan Keras.
+
+**Module 7**: Computer Vision untuk Video
+Pada modul ini, kami akan menjelaskan penggunaan Computer Vision untuk video. Anda akan mempelajari perbedaan antara Computer Vision untuk gambar dan video, serta aplikasi Computer Vision dalam video. Kami akan membahas teknik tracking dalam video, termasuk definisi, metode, dan implementasinya. Selain itu, kami juga akan membahas activity recognition, termasuk definisi, metode, dan implementasinya. Anda akan menggunakan library Python seperti OpenCV, TensorFlow, dan Keras untuk mengimplementasikan teknik tracking dan activity recognition pada video. Modul ini akan melibatkan praktik mengimplementasikan teknik tersebut dengan menggunakan Python, OpenCV, TensorFlow, dan Keras.
+
+**Module 8**: Transfer Learning dan Fine-tuning dalam Deep Learning
+Pada modul ini, kami akan memperkenalkan Transfer Learning dan Fine-tuning dalam Deep Learning. Anda akan mempelajari definisi, prinsip kerja, manfaat, dan aplikasi Transfer Learning dan Fine-tuning dalam Computer Vision. Kami akan menjelaskan cara menggunakan model pre-trained seperti VGG16 dan ResNet untuk tugas Computer Vision, serta melakukan fine-tuning pada model pre-trained tersebut. Modul ini akan melibatkan praktik mengimplementasikan Transfer Learning dan Fine-tuning pada model Deep Learning dengan menggunakan Python, TensorFlow, dan Keras.
+
+**Module 9**: Computer Vision di Edge Devices
+Pada modul ini, kami akan membahas penggunaan Computer Vision di Edge Devices. Anda akan mempelajari definisi dan sejarah Edge Computing, perbedaan antara Cloud Computing dan Edge Computing, serta manfaat dan tantangan dalam menerapkan Computer Vision di edge devices. Kami akan menjelaskan teknik optimisasi model untuk edge devices, seperti quantization, pruning, dan knowledge distillation. Selain itu, Anda akan belajar tentang platform deployment seperti TensorFlow Lite dan ONNX, serta cara melakukan deployment model ke edge devices. Modul ini akan melibatkan praktik mengoptimalkan model Computer Vision untuk edge devices, dan melakukan deployment model ke edge devices menggunakan platform seperti TensorFlow Lite atau ONNX.
+
+**Module 10**: Ethics in Computer Vision
+Pada modul ini, kami akan membahas etika dalam Computer Vision. Anda akan mempelajari peran etika dalam pengembangan dan penerapan teknologi Computer Vision, serta isu-isu utama dalam etika Computer Vision seperti privasi dan bias. Kami akan mendiskusikan strategi untuk mitigasi isu privasi dan bias. Modul ini akan melibatkan diskusi tentang kasus-kasus nyata yang berkaitan dengan isu etika dalam Computer Vision, serta bagaimana Anda dapat menerapkan prinsip etika dalam pekerjaan Anda sebagai praktisi Computer Vision.
+
+**Module 11**: Capaian dan Masa Depan Computer Vision
+Pada modul terakhir ini, kami akan melakukan ringkasan materi yang telah dipelajari sepanjang kursus. Kami akan membahas capaian terkini dalam bidang Computer Vision, serta tantangan dan prospek masa depan dalam Computer Vision. Modul ini akan melibatkan diskusi tentang bagaimana Anda dapat menerapkan pengetahuan dan keterampilan Anda dalam Computer Vision di masa depan, serta peluang karir dan pengembangan profesional dalam bidang Computer Vision.
+
+**Proyek-proyek**:
+Selama kursus, Anda akan mengikuti serangkaian proyek yang melibatkan penerapan konsep dan teknik yang telah dipelajari. Proyek-proyek ini mencakup pembuatan sistem klasifikasi gambar, sistem deteksi dan pengenalan wajah, sistem deteksi objek dengan transfer learning, dan sistem klasifikasi kendaraan berbasis video tracking. Anda akan melalui tahap desain sistem, implementasi, evaluasi, dan praktik dalam setiap proyek untuk menguji pemahaman dan keterampilan Anda dalam Computer Vision.
+
+Dengan menyelesaikan kursus ini, Anda akan memperoleh pengetahuan dan keterampilan praktis yang diperlukan untuk mengembangkan dan menerapkan solusi Computer Vision. Anda akan mampu menggunakan Python dan berbagai library terkait untuk memproses gambar dan video, melakukan ekstraksi fitur, membangun dan melatih model Deep Learning, serta menerapkan teknik Computer Vision pada berbagai aplikasi.

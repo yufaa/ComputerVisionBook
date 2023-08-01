@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Computer Vision"
+  author: "Bengkel Koding"
+  date: "7/28/2023"
+  chapters:
+    - index.qmd
+    - 1_Pengenalan_Computer_Vision_dan_Python.qmd
+    - 2_Python.qmd
+    - 3_Dasar_dasar_Image_Processing.qmd
+    - 4_Feature_Extraction_and_Matching.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
