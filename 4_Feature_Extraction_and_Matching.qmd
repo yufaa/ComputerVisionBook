@@ -168,4 +168,6 @@ Sesuai dengan namanya, keypoints merupakan titik-titik yang menunjukan bagian-ba
 </div>    
 
 
+## Latihan Praktik
+
 
