@@ -1,0 +1,108 @@
+# Studi Kasus {.unnumbered}
+
+## Sistem Klasifikasi Gambar  
+
+**Latihan Praktik**  
+
+Latihan ini memandu Anda melalui langkah-langkah membuat sistem klasifikasi gambar sendiri dengan SIFT, BoVW, dan SVM. Anda akan:  
+
+- Memuat dan memproses dataset gambar Anda sendiri.
+- Menerapkan metode SIFT pada gambar untuk mengekstrak fitur dan menggunakan BoVW untuk membentuk vektor fitur.
+- Membuat dan melatih model SVM dan KNN Anda sendiri.  
+- Mengevaluasi performa model Anda pada data pengujian.  
+
+Latihan ini memberikan pemahaman yang lebih baik tentang bagaimana sistem klasifikasi gambar bekerja dengan menggunakan metode ekstraksi fitur dan model klasifikasi.  
+
+**Evaluasi Sistem**  
+Evaluasi sistem melibatkan perbandingan antara kelas sebenarnya dan kelas yang diprediksi oleh model.  
+
+- Evaluasi In-Sample: Selama proses pelatihan, akurasi pada data pelatihan akan dihitung.  
+- Evaluasi Out-of-Sample: Setelah model dilatih, akurasi pada data pengujian akan dihitung.  
+
+
+**Dataset**   
+
+Dataset yang digunakan terdiri dari 3 label yaitu label Kirei, Putri, dan Yudha
+dengan total sejumlah 353 citra berukuran 3024x3024 pixel.    
+Tiap label memiliki jumlah yang berbeda-beda, label Kirei sejumlah 107 citra, label Putri sejumlah 
+115 citra, dan label Yudha sejumlah 131 citra. Dataset yang terkumpul memiliki
+nilai eksposure yang bervariasi yaitu -2, -1, 0, 1, 2, sehingga setiap citra di 
+dataset memiliki variasi nilai pixel yang cukup besar. 
+
+## KODE PYTHON  
+
+**Mengimport Library yang dibutuhkan**
+```python
+import cv2
+import numpy as np
+import os
+from sklearn.model_selection import train_test_split
+```
+
+**Memuat Dataset**  
+
+<div style="text-align:center">
+![Struktur Dataset](Asset/strukturdataset.png)
+</div>
+
+```python
+train_path = 'Dataset'
+training_names = os.listdir(train_path) # Putri, Kirei, Yudha
+
+image_paths = []
+image_classes = []
+class_id = 0
+
+def imglist(path):    
+    return [os.path.join(path, f) for f in os.listdir(path)]
+
+for training_name in training_names:
+    dir = os.path.join(train_path, training_name) # Menggabungkan train_path dan training_name; Dataset/Putri, Dataset/Kirei, Dataset/Yudha
+    class_path = imglist(dir)
+    image_paths+=class_path
+    image_classes+=[class_id]*len(class_path)
+    class_id+=1
+```
+
+::: {.callout-tip}
+## Tip with Title
+Hasil dari class_path list path gabungan adalah Dataset/Putri/img1; Dataset/Putri/img2; Dataset/Putri/img3; ...
+:::
+
+**Mengekstrak Fitur Menggunakan Algoritma SIFT**
+```python
+des_list = []
+
+sift = cv2.SIFT_create(30)
+
+for image_path in image_paths:
+    im = cv2.imread(image_path)
+    kpts, des = sift.detectAndCompute(im, None)
+    des_list.append((image_path, des))   
+    
+descriptors = des_list[0][1]
+for image_path, descriptor in des_list[1:]:
+    descriptors = np.vstack((descriptors, descriptor))  
+
+descriptors_float = descriptors.astype(float)  
+
+from scipy.cluster.vq import kmeans, vq
+
+k = 150  
+voc, variance = kmeans(descriptors_float, k, 1) 
+
+im_features = np.zeros((len(image_paths), k), "float32")
+for i in range(len(image_paths)):
+    words, distance = vq(des_list[i][1],voc)
+    for w in words:
+        im_features[i][w] += 1
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(im_features, image_classes, test_size=0.2, random_state=42, stratify=image_classes)
+
+print("Jumlah data training:", len(X_train))
+```
+
+
+
+

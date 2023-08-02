@@ -11,6 +11,7 @@ book:
     - 2_Python.qmd
     - 3_Dasar_dasar_Image_Processing.qmd
     - 4_Feature_Extraction_and_Matching.qmd
+    - Studi_Kasus.qmd
     - references.qmd
 
 bibliography: references.bib
