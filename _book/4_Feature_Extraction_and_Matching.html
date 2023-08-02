@@ -71,10 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -123,6 +125,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Computer Vision</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -168,12 +173,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Studi Kasus</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -195,7 +194,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#scale-invariant-feature-transform-sift" id="toc-scale-invariant-feature-transform-sift" class="nav-link" data-scroll-target="#scale-invariant-feature-transform-sift">Scale Invariant Feature Transform (SIFT)</a></li>
   </ul></li>
   <li><a href="#c.-bow-dan-bovw" id="toc-c.-bow-dan-bovw" class="nav-link" data-scroll-target="#c.-bow-dan-bovw">C. BoW dan BoVW</a></li>
-  <li><a href="#latihan-praktik" id="toc-latihan-praktik" class="nav-link" data-scroll-target="#latihan-praktik">Latihan Praktik</a></li>
   </ul>
 </nav>
     </div>
@@ -235,11 +233,13 @@ Fitur adalah bagian dari informasi yang relevan untuk menyelesaikan tugas komput
 <section id="feature-descriptor" class="level3">
 <h3 class="anchored" data-anchor-id="feature-descriptor">Feature Descriptor</h3>
 <p>Deskriptor fitur adalah algoritme yang mengambil gambar dan menampilkan deskriptor fitur/vektor fitur. Deskriptor fitur menyandikan informasi menarik ke dalam rangkaian angka dan bertindak sebagai semacam “sidik jari” numerik yang dapat digunakan untuk membedakan satu fitur dari fitur lainnya.</p>
+<div style="text-align:center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Asset/image12.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Gambar… Macam-macam Feature Descriptor</figcaption>
+<figcaption class="figure-caption">Macam-macam Feature Descriptor</figcaption>
 </figure>
+</div>
 </div>
 <p>Idealnya, informasi ini akan menjadi invarian di bawah transformasi citra, sehingga kita dapat menemukan kembali fitur tersebut bahkan jika citra diubah dalam beberapa cara. Setelah mendeteksi feature point, kami melanjutkan untuk menghitung deskriptor untuk masing-masingnya. Deskriptor dapat dikategorikan menjadi dua kelas:</p>
 <ul>
@@ -262,11 +262,13 @@ Macam - macam Algoritma Descriptor :<br>
 <section id="feature-matching" class="level3">
 <h3 class="anchored" data-anchor-id="feature-matching">Feature Matching</h3>
 <p>Pencocokan fitur atau umumnya pencocokan gambar, bagian dari banyak aplikasi visi komputer seperti pendaftaran gambar, kalibrasi kamera dan pengenalan objek, adalah tugas membangun korespondensi antara dua gambar dari pemandangan/objek yang sama. Pendekatan umum untuk pencocokan citra terdiri dari pendeteksian sekumpulan poin kepentingan yang masing-masing terkait dengan deskriptor citra dari data citra. Setelah fitur dan deskriptornya diekstraksi dari dua atau lebih gambar, langkah selanjutnya adalah membuat beberapa pencocokan fitur awal antara gambar-gambar ini.</p>
+<div style="text-align:center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Asset/image13.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Gambar… Pencocokan gambar</figcaption>
+<figcaption class="figure-caption">Pencocokan gambar</figcaption>
 </figure>
+</div>
 </div>
 <p>Secara umum, kinerja metode pencocokan berdasarkan interest point atau feature point bergantung pada properti dari feature point yang mendasarinya dan pilihan deskriptor gambar terkait. Dengan demikian, detektor dan deskriptor yang sesuai untuk konten gambar harus digunakan dalam aplikasi. Misalnya, jika gambar mengandung sel bakteri, detektor blob harus digunakan daripada detektor sudut. Tapi, jika gambar tersebut adalah pemandangan kota dari udara, detektor sudut cocok untuk menemukan struktur buatan manusia. Selain itu, pemilihan detektor dan deskriptor yang mengatasi degradasi citra sangatlah penting.<br>
 Macam - macam Algoritma Pencocokan:</p>
@@ -288,8 +290,8 @@ Macam - macam Algoritma Pencocokan:</p>
 <div style="text-align:center">
 <p><img src="Asset/image14.png" class="img-fluid"></p>
 </div></li>
-<li>Orientasi pengalamatan: Langkah kedua adalah pembuatan histogram sel. Untuk ini, orientasi gradien diquantisasi ke dalam bin. Setiap bin akan mendapatkan voting berdasarkan magnitudo gradien. Voting juga dapat diberi bobot dengan filter Gaussian untuk mengurangi bobot piksel-piksel di dekat tepi blok.<br>
-
+<li>Orientasi pengalamatan: Langkah kedua adalah pembuatan histogram sel. Untuk ini, orientasi gradien diquantisasi ke dalam bin. Setiap bin akan mendapatkan voting berdasarkan magnitudo gradien. Voting juga dapat diberi bobot dengan filter Gaussian untuk mengurangi bobot piksel-piksel di dekat tepi blok.</li>
+</ul>
 <div style="text-align:center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -297,8 +299,7 @@ Macam - macam Algoritma Pencocokan:</p>
 <figcaption class="figure-caption">Histogram of oriented gradients: (a) cell histogram and (b) orientation binning</figcaption>
 </figure>
 </div>
-</div></li>
-</ul>
+</div>
 <p>Mari kita ambil contoh ekstraksi deskriptor HOG. Untuk ini, kita menggunakan citra berukuran 64 x 128. Pertama, citra dibagi menjadi blok 16 x 16 dengan tumpang tindih 50%. Jadi, totalnya akan ada 7 x 15 = 105 blok. Setiap blok harus terdiri dari 2 x 2 sel dengan ukuran 8x8 piksel. Sekarang, orientasi gradien diquantisasi menjadi 9 bin. Di sini, voting adalah magnitudo gradien. Sekarang, voting diinterpolasi secara bilinear antara pusat bin yang berdekatan. Misalnya, misalkan orientasi adalah 75°. Kemudian, jarak antara pusat bin bin 70 dan bin 90 adalah 5° dan 15°, masing-masing. Oleh karena itu, rasio kepemilikan adalah 15/20 atau 3/4 dan 5/20 atau 1/4. Hal ini ditunjukkan secara diagramatik pada Gambar 3.24(a) dan (b). Histogram dari gradien yang diarahkan ditunjukkan pada Gambar 3.25.</p>
 <ul>
 <li>Penggabungan blok deskriptor: Histogram sel kemudian digabungkan untuk membentuk vektor fitur seperti yang ditunjukkan pada Gambar 3.26. Pada contoh kita, histogram yang diperoleh dari blok yang tumpang tindih 2 x 2 sel digabungkan menjadi vektor fitur 1-D dengan dimensi 105 x 2 x 2 x 9 = 3780.<br>
@@ -346,7 +347,7 @@ Untuk mengimplementasikan algoritma SIFT dalam Python, dapat menggunakan pustaka
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Asset/image17.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Gambar 3.27 Implementasi Langkah algoritma SIFT</figcaption>
+<figcaption class="figure-caption">Implementasi Langkah algoritma SIFT</figcaption>
 </figure>
 </div>
 </div>
@@ -361,7 +362,7 @@ L(x, y, kiσ) = G(x, y, kσ) * I(x, y)</li>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Asset/image18.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Gambar 3.28 Formasi Laplacian Pyramid</figcaption>
+<figcaption class="figure-caption">Formasi Laplacian Pyramid</figcaption>
 </figure>
 </div>
 </div>
@@ -372,7 +373,7 @@ L(x, y, kiσ) = G(x, y, kσ) * I(x, y)</li>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Asset/image19.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">3.29. Scale-space peak detection</figcaption>
+<figcaption class="figure-caption">Scale-space peak detection</figcaption>
 </figure>
 </div>
 </div></li>
@@ -424,9 +425,6 @@ Sesuai dengan namanya, keypoints merupakan titik-titik yang menunjukan bagian-ba
 <div style="text-align:center">
 <p><img src="Asset/image118.png" class="img-fluid"></p>
 </div>
-</section>
-<section id="latihan-praktik" class="level2">
-<h2 class="anchored" data-anchor-id="latihan-praktik">Latihan Praktik</h2>
 
 
 </section>
@@ -452,6 +450,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

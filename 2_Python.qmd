@@ -389,9 +389,11 @@ import scipy.ndimage as im
 Pada perintah pertama, hanya submodul ndimage yang dimuat. Pada perintah kedua, modul ndimage dimuat sebagai im.  
 
 ### Matplotlib  
-Matplotlib adalah perpustakaan plot 2D/3D untuk Python. Ia dirancang untuk menggunakan tipe data numpy. Matplotlib dapat digunakan untuk menghasilkan plot di dalam program Python. Contoh yang menunjukkan fitur-fitur matplotlib ditunjukkan dalam Gambar 2.1.  
+Matplotlib adalah perpustakaan plot 2D/3D untuk Python. Ia dirancang untuk menggunakan tipe data numpy. Matplotlib dapat digunakan untuk menghasilkan plot di dalam program Python. Contoh yang menunjukkan fitur-fitur matplotlib ditunjukkan dalam Gambar 2.1.   
 
+<div style="text-align:center">
 ![Gambar 2.1 Ilustrasi Matplotlib](Asset/image11.png)  
+</div>
 
 Instalasi Matplotlib  
 ```python
@@ -413,12 +415,15 @@ from PIL import image
 ```
 
 ### Scikits  
-Scikits adalah singkatan dari scipy toolkits. Ini adalah paket tambahan yang dapat digunakan bersama dengan alat-alat scipy. Sebuah algoritma diprogram dalam scikits jika:  
+Scikits adalah singkatan dari scipy toolkits. Ini adalah paket tambahan yang dapat digunakan bersama dengan alat-alat scipy. Sebuah algoritma diprogram dalam scikits jika:    
+
 - Algoritma tersebut masih dalam pengembangan dan belum siap untuk digunakan secara luas dalam scipy.  
 - Paket tersebut memiliki lisensi yang tidak kompatibel dengan scipy.  
 - Scipy adalah paket ilmiah umum dalam bahasa Python. Oleh karena itu, dirancang agar dapat diterapkan dalam berbagai bidang. Jika sebuah paket dianggap khusus untuk bidang tertentu, maka paket tersebut tetap menjadi bagian dari scikits.  
-Scikits terdiri dari modul-modul dari berbagai bidang seperti ilmu lingkungan, analisis statistik, pemrosesan gambar, rekayasa mikrowave, pemrosesan audio, masalah nilai batas, penyesuaian kurva, komputasi kuantum, dll.  
-Dalam buku ini, kita akan fokus hanya pada rutinitas pemrosesan gambar dalam scikits yang disebut scikit-image. Rutinitas scikit-image ini berisi algoritma-algoritma untuk input/output, morfologi, deteksi dan analisis objek, dll.  
+Scikits terdiri dari modul-modul dari berbagai bidang seperti ilmu lingkungan, analisis statistik, pemrosesan gambar, rekayasa mikrowave, pemrosesan audio, masalah nilai batas, penyesuaian kurva, komputasi kuantum, dll.   
+
+Dalam buku ini, kita akan fokus hanya pada rutinitas pemrosesan gambar dalam scikits yang disebut scikit-image. Rutinitas scikit-image ini berisi algoritma-algoritma untuk input/output, morfologi, deteksi dan analisis objek, dll.   
+
 Installasi Skimage  
 ```python
 ! pip install scikit-image

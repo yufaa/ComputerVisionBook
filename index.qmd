@@ -1,13 +1,12 @@
 # Computer Vision {.unnumbered}
 
-## A. Tentang Buku ini
-<br>
-<p>Buku ini dirancang sebagai panduan komprehensif untuk memahami dan menerapkan teknik computer vision menggunakan bahasa pemrograman Python. Buku ini ditujukan untuk individu yang berminat dalam bidang computer vision, baik mereka yang baru memulai perjalanan mereka atau mereka yang sudah memiliki pengalaman dasar dalam bidang ini dan ingin memperdalam pengetahuan mereka.</p>
-<br>
-<p>Buku ini mencakup berbagai topik mulai dari konsep dasar computer vision dan image processing, hingga teknik machine learning dan deep learning yang canggih yang digunakan dalam aplikasi computer vision. Selain itu, buku ini juga mencakup bagian penting tentang etika dalam computer vision, suatu topik yang sering diabaikan tetapi sangat penting.
-</p>
-<br>
-Dalam buku ini, pembaca akan belajar melalui penjelasan konsep, contoh kode, gambar, diagram, latihan, dan proyek praktis. Tujuan utama buku ini adalah untuk memberikan pemahaman yang solid tentang konsep dasar dan lanjutan dalam computer vision dan bagaimana menerapkannya dalam situasi dunia nyata menggunakan Python.
+## A. Tentang Kursus ini  
+
+Kursus ini dirancang sebagai panduan komprehensif untuk memahami dan menerapkan teknik computer vision menggunakan bahasa pemrograman Python. Kursus ini ditujukan untuk individu yang berminat dalam bidang computer vision, baik mereka yang baru memulai perjalanan mereka atau mereka yang sudah memiliki pengalaman dasar dalam bidang ini dan ingin memperdalam pengetahuan mereka.    
+
+Kursus ini mencakup berbagai topik mulai dari konsep dasar computer vision dan image processing, hingga teknik machine learning dan deep learning yang canggih yang digunakan dalam aplikasi computer vision. Selain itu, kursus ini juga mencakup bagian penting tentang etika dalam computer vision, suatu topik yang sering diabaikan tetapi sangat penting.    
+
+Dalam kursus ini, pembaca akan belajar melalui penjelasan konsep, contoh kode, gambar, diagram, latihan, dan proyek praktis. Tujuan utama kursus ini adalah untuk memberikan pemahaman yang solid tentang konsep dasar dan lanjutan dalam computer vision dan bagaimana menerapkannya dalam situasi dunia nyata menggunakan Python.
 
 ## B. Pengenalan Kursus Computer Vision dan Python
 Kursus ini bertujuan untuk memperkenalkan Anda pada konsep dan praktik Computer Vision menggunakan Python. Selama kursus ini, Anda akan mempelajari dasar-dasar Computer Vision dan mengapa Python menjadi bahasa pemrograman yang populer dalam bidang ini.

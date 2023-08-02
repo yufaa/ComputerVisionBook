@@ -16,7 +16,9 @@ Komponen utama Deteksi dan Pencocokan Fitur:
 ### Feature Descriptor    
 Deskriptor fitur adalah algoritme yang mengambil gambar dan menampilkan deskriptor fitur/vektor fitur. Deskriptor fitur menyandikan informasi menarik ke dalam rangkaian angka dan bertindak sebagai semacam "sidik jari" numerik yang dapat digunakan untuk membedakan satu fitur dari fitur lainnya.  
 
-![Gambar... Macam-macam Feature Descriptor](Asset/image12.png)  
+<div style="text-align:center">
+![Macam-macam Feature Descriptor](Asset/image12.png)  
+</div>
 
 Idealnya, informasi ini akan menjadi invarian di bawah transformasi citra, sehingga kita dapat menemukan kembali fitur tersebut bahkan jika citra diubah dalam beberapa cara. Setelah mendeteksi feature point, kami melanjutkan untuk menghitung deskriptor untuk masing-masingnya. Deskriptor dapat dikategorikan menjadi dua kelas:  
 
@@ -32,7 +34,9 @@ Macam - macam Algoritma Descriptor :
 ### Feature Matching
 Pencocokan fitur atau umumnya pencocokan gambar, bagian dari banyak aplikasi visi komputer seperti pendaftaran gambar, kalibrasi kamera dan pengenalan objek, adalah tugas membangun korespondensi antara dua gambar dari pemandangan/objek yang sama. Pendekatan umum untuk pencocokan citra terdiri dari pendeteksian sekumpulan poin kepentingan yang masing-masing terkait dengan deskriptor citra dari data citra. Setelah fitur dan deskriptornya diekstraksi dari dua atau lebih gambar, langkah selanjutnya adalah membuat beberapa pencocokan fitur awal antara gambar-gambar ini.  
 
-![Gambar... Pencocokan gambar](Asset/image13.png)  
+<div style="text-align:center">
+![Pencocokan gambar](Asset/image13.png)  
+</div>
 
 Secara umum, kinerja metode pencocokan berdasarkan interest point atau feature point bergantung pada properti dari feature point yang mendasarinya dan pilihan deskriptor gambar terkait. Dengan demikian, detektor dan deskriptor yang sesuai untuk konten gambar harus digunakan dalam aplikasi. Misalnya, jika gambar mengandung sel bakteri, detektor blob harus digunakan daripada detektor sudut. Tapi, jika gambar tersebut adalah pemandangan kota dari udara, detektor sudut cocok untuk menemukan struktur buatan manusia. Selain itu, pemilihan detektor dan deskriptor yang mengatasi degradasi citra sangatlah penting.  
 Macam - macam Algoritma Pencocokan:   
@@ -52,8 +56,9 @@ Histogram of Oriented Gradients (HOG) adalah deskriptor fitur citra yang dapat d
 </div>
 
 - Orientasi pengalamatan: Langkah kedua adalah pembuatan histogram sel. Untuk ini, orientasi gradien diquantisasi ke dalam bin. Setiap bin akan mendapatkan voting berdasarkan magnitudo gradien. Voting juga dapat diberi bobot dengan filter Gaussian untuk mengurangi bobot piksel-piksel di dekat tepi blok.  
+
 <div style="text-align:center">
-    ![Histogram of oriented gradients: (a) cell histogram and (b) orientation binning](Asset/image15.png)  
+![Histogram of oriented gradients: (a) cell histogram and (b) orientation binning](Asset/image15.png)  
 </div>
 
 Mari kita ambil contoh ekstraksi deskriptor HOG. Untuk ini, kita menggunakan citra berukuran 64 x 128. Pertama, citra dibagi menjadi blok 16 x 16 dengan tumpang tindih 50%. Jadi, totalnya akan ada 7 x 15 = 105 blok. Setiap blok harus terdiri dari 2 x 2 sel dengan ukuran 8x8 piksel. Sekarang, orientasi gradien diquantisasi menjadi 9 bin. Di sini, voting adalah magnitudo gradien. Sekarang, voting diinterpolasi secara bilinear antara pusat bin yang berdekatan. Misalnya, misalkan orientasi adalah 75°. Kemudian, jarak antara pusat bin bin 70 dan bin 90 adalah 5° dan 15°, masing-masing. Oleh karena itu, rasio kepemilikan adalah 15/20 atau 3/4 dan 5/20 atau 1/4. Hal ini ditunjukkan secara diagramatik pada Gambar 3.24(a) dan (b). Histogram dari gradien yang diarahkan ditunjukkan pada Gambar 3.25.   
@@ -87,7 +92,7 @@ Setelah deskriptor dihitung untuk semua titik kunci, mereka dapat digunakan untu
 
 Untuk mengimplementasikan algoritma SIFT dalam Python, dapat menggunakan pustaka OpenCV. OpenCV menyediakan fungsi-fungsi untuk deteksi titik kunci, perhitungan deskriptor, dan pencocokan fitur. Dapat merujuk pada dokumentasi dan tutorial OpenCV untuk informasi detail tentang cara menggunakan algoritma SIFT dalam Python.C. Feature Matching.  
 <div style="text-align:center">
-![Gambar 3.27  Implementasi Langkah algoritma SIFT](Asset/image17.png)  
+![Implementasi Langkah algoritma SIFT](Asset/image17.png)  
 </div>
 
 Gambar 3.27 menunjukkan semua langkah implementasi dari algoritma SIFT. Langkah-langkah ini sekarang akan dijelaskan secara detail di bawah ini.    
@@ -98,12 +103,12 @@ Di mana, L(x, y, kσ) adalah hasil konvolusi dari citra asli f(x, y) dengan blur
 L(x, y, kiσ) = G(x, y, kσ) * I(x, y)   
 
 <div style="text-align:center">
-![Gambar 3.28 Formasi Laplacian Pyramid](Asset/image18.png)  
+![Formasi Laplacian Pyramid](Asset/image18.png)  
 </div>
 
 - **Deteksi puncak dalam skala-ruang:** Pada tahap ini, titik-titik ekstrem lokal dideteksi dengan mempertimbangkan baik ruang maupun skala. Tujuannya adalah untuk mengidentifikasi lokasi dan skala yang dapat diberikan secara berulang dalam pandangan yang berbeda dari adegan atau objek yang sama. Pada kasus diskrit, hal ini ditentukan dengan membandingkan dengan 26 tetangga terdekat seperti yang ditunjukkan di Gambar 3.29.   
 <div style="text-align:center">
-    ![3.29. Scale-space peak detection](Asset/image19.png)  
+    ![Scale-space peak detection](Asset/image19.png)  
 </div>
 
 - **Lokalisasi titik kunci dan penolakan outlier:** Selanjutnya, skala yang memberikan ekstremum dalam perbedaan Gaussian ditetapkan sebagai skala untuk titik kunci. Namun, deteksi ekstremum dalam skala-ruang menghasilkan banyak calon titik kunci. Namun demikian, beberapa titik kunci tidak stabil. Oleh karena itu, langkah berikutnya dari algoritma ini adalah menolak beberapa titik kunci yang memiliki kontras rendah atau yang terlokalisasi buruk di sepanjang tepi. Titik kunci dengan kontras rendah sensitif terhadap noise.  
@@ -166,8 +171,3 @@ Sesuai dengan namanya, keypoints merupakan titik-titik yang menunjukan bagian-ba
 <div style="text-align:center">
 ![](Asset/image118.png)
 </div>    
-
-
-## Latihan Praktik
-
-

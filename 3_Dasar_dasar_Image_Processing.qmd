@@ -53,8 +53,11 @@ Pengolahan gambar digital berurusan dengan manipulasi dan analisis gambar digita
 ## C. Python Untuk Image Processing  
 
 Dalam tutorial ini, Anda akan menemukan fungsi dasar untuk memuat, memanipulasi, dan menampilkan gambar. Informasi utama dari gambar akan diperoleh, seperti ukuran, jumlah saluran, kelas penyimpanan, dan lain-lain. Setelah itu, Anda akan dapat melakukan filter klasik pertama Anda.  
-Proses yang berbeda akan dilakukan pada gambar-gambar berikut ini:  
-![](Asset/image1115.png)   
+Proses yang berbeda akan dilakukan pada gambar-gambar berikut ini:   
+
+<div style="text-align:center">
+![a. Retina Vessel, b. Muscle Cells, c. Cornea Cells](Asset/image1115.png)   
+</div>
 
 ### Spatial Filter
 #### Filtering  
@@ -127,27 +130,4 @@ Selanjutnya, menentukan turunan kedua lokal (Hessian) dan nilai eigen-nya. Untuk
 - Filter median efektif dalam menghilangkan noise salt-and-pepper.
 - Filter turunan pertama yang paling banyak digunakan adalah Sobel, Prewitt, dan Canny.
 -  Baik Laplacian maupun LoG adalah filter turunan kedua yang populer. Laplacian sangat sensitif terhadap noise. Pada LoG, Gaussian menghaluskan gambar sehingga noise dari Laplacian dapat dikompensasi. Namun, LoG mengalami efek 'spaghetti'. (*Efek 'spaghetti' merujuk pada hasil filter LoG yang menghasilkan garis-garis tipis seperti spageti yang melintang di sekitar tepi objek dalam gambar. Efek ini terjadi karena penggunaan kernel LoG yang besar atau parameter yang tidak sesuai, yang mengakibatkan respons yang berlebihan dan menciptakan garis-garis halus yang terlalu banyak pada tepi objek dalam gambar. Hasilnya adalah gambar yang terdistorsi dan sulit diinterpretasikan dengan jelas)
-- Filter Frangi digunakan untuk mendeteksi struktur yang mirip dengan pembuluh darah.   
-
-
-## Latihan Praktik
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Filter Frangi digunakan untuk mendeteksi struktur yang mirip dengan pembuluh darah.     

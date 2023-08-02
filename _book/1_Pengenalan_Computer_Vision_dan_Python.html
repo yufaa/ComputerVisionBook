@@ -71,10 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -123,6 +125,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Computer Vision</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -165,13 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Studi_Kasus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Studi Kasus 1: Sistem Klasifikasi Gambar</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Studi Kasus</span></a>
   </div>
 </li>
     </ul>
@@ -227,9 +226,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Kita dapat melihat kesamaan antara sistem penglihatan manusia dan sistem visi komputer. Seperti yang diilustrasikan dalam Gambar 1, prinsip dasar dari kedua sistem ini hampir sama, yaitu konversi cahaya menjadi sinyal/informasi yang berguna untuk membangun model akurat dari dunia fisik. Demikian pula, jika dilihat secara keseluruhan, struktur visi manusia dan visi komputer agak mirip, yaitu keduanya memiliki sensor cahaya yang mengubah foton menjadi sinyal (gambar), langkah pemrosesan, dan akhirnya mekanisme untuk menginterpretasi sinyal (pengenalan objek).</p>
 <p>Perbedaan antara visi komputer, pemrosesan gambar, dan grafika komputer dapat disimpulkan sebagai berikut:</p>
-<p>Dalam Visi Komputer (analisis gambar, interpretasi gambar, pemahaman scene), inputnya adalah gambar dan outputnya adalah interpretasi sebuah scene. Analisis gambar berkaitan dengan pengukuran kuantitatif dari sebuah gambar untuk memberikan deskripsi tentang gambar tersebut. Dalam Pemrosesan Gambar (pemulihan gambar, rekonstruksi, penyaringan, kompresi, visualisasi), inputnya adalah gambar dan outputnya juga berupa gambar. Terakhir, dalam Grafika Komputer, inputnya adalah sebuah scene dunia nyata dan outputnya adalah sebuah gambar. Visi komputer membuat model dari gambar (analisis), sedangkan grafika komputer menggunakan model sebagai input dan mengonversinya menjadi gambar (synthesis). Dalam perspektif Hukum Bayes, konsep ini dapat dijelaskan sebagai berikut:</p>
+<p>Dalam Visi Komputer (analisis gambar, interpretasi gambar, pemahaman scene), inputnya adalah gambar dan outputnya adalah interpretasi sebuah scene. Analisis gambar berkaitan dengan pengukuran kuantitatif dari sebuah gambar untuk memberikan deskripsi tentang gambar tersebut.<br>
+Dalam Pemrosesan Gambar (pemulihan gambar, rekonstruksi, penyaringan, kompresi, visualisasi), inputnya adalah gambar dan outputnya juga berupa gambar.<br>
+Terakhir, dalam Grafika Komputer, inputnya adalah sebuah scene dunia nyata dan outputnya adalah sebuah gambar.<br>
+Visi komputer membuat model dari gambar (analisis), sedangkan grafika komputer menggunakan model sebagai input dan mengonversinya menjadi gambar (synthesis). Dalam perspektif Hukum Bayes, konsep ini dapat dijelaskan sebagai berikut:</p>
 <p><img src="Asset/image3.png" class="img-fluid"></p>
-Dalam persamaan ini, P(Dunia|Gambar) merupakan Visi Komputer, P(Dunia) mengacu pada pemodelan objek dalam dunia nyata, dan P(Gambar|Dunia) adalah Grafika Komputer. Perspektif ini mendorong pendekatan pembelajaran statistik. Oleh karena itu, visi komputer berkaitan dengan pengembangan mesin-mesin yang dapat melihat dan berinteraksi dengan dunia.<br>
+<p>Dalam persamaan ini, P(Dunia|Gambar) merupakan Visi Komputer, P(Dunia) mengacu pada pemodelan objek dalam dunia nyata, dan P(Gambar|Dunia) adalah Grafika Komputer. Perspektif ini mendorong pendekatan pembelajaran statistik. Oleh karena itu, visi komputer berkaitan dengan pengembangan mesin-mesin yang dapat melihat dan berinteraksi dengan dunia.</p>
 Konsep ini diilustrasikan dalam Gambar 2.<br>
 
 <div style="text-align:center">
@@ -240,8 +242,7 @@ Konsep ini diilustrasikan dalam Gambar 2.<br>
 </figure>
 </div>
 </div>
-Visi komputer saat ini digunakan dalam berbagai aplikasi dunia nyata, termasuk inspeksi mesin, pengenalan karakter optik (OCR), pembangunan model 3D (fotogrametri), analisis gambar medis, pengawasan video otomatis, biometrik, fusi dan penyambungan gambar, morphing, pemodelan 3D, dan lain-lain. Seperti yang ditunjukkan dalam Gambar 3, visi komputer terkait dengan banyak bidang penelitian penting.<br>
-
+<p>Visi komputer saat ini digunakan dalam berbagai aplikasi dunia nyata, termasuk inspeksi mesin, pengenalan karakter optik (OCR), pembangunan model 3D (fotogrametri), analisis gambar medis, pengawasan video otomatis, biometrik, fusi dan penyambungan gambar, morphing, pemodelan 3D, dan lain-lain. Seperti yang ditunjukkan dalam Gambar 3, visi komputer terkait dengan banyak bidang penelitian penting.</p>
 <div style="text-align:center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -267,7 +268,8 @@ Visi komputer saat ini digunakan dalam berbagai aplikasi dunia nyata, termasuk i
 <p>OpenCV (Open Source Computer Vision Library) adalah perpustakaan yang sangat populer dalam bidang pengolahan gambar dan computer vision. Dikembangkan oleh Intel dan disebarkan dengan lisensi BSD, OpenCV memungkinkan pengembangan solusi computer vision dengan cepat dan efisien, baik untuk aplikasi real-time maupun offline.</p>
 <p>Sementara itu, TensorFlow dan PyTorch adalah kerangka kerja pembelajaran mesin yang mendukung operasi yang diperlukan untuk pekerjaan computer vision. Keduanya mendukung teknik pembelajaran mesin canggih seperti jaringan saraf dan pembelajaran mendalam (deep learning) yang sering digunakan dalam aplikasi computer vision modern.</p>
 <p>Python juga memiliki kelebihan dalam penanganan data visual. Dengan Python, pengguna dapat dengan mudah membaca, menulis, dan memanipulasi gambar dan video dalam berbagai format. Python juga mendukung operasi pra-pemrosesan yang diperlukan untuk data visual, seperti perubahan ukuran gambar, normalisasi, dan augmentasi data.</p>
-<p>Terakhir, Python juga menawarkan kemudahan dalam visualisasi data dan hasil. Dengan menggunakan perpustakaan seperti Matplotlib dan Seaborn, pengguna dapat dengan mudah memvisualisasikan data dan hasil dalam berbagai format. Dengan kata lain, dengan Python, computer vision menjadi lebih mudah diakses dan dipahami, baik oleh profesional maupun pemula. Python telah membuktikan dirinya sebagai bahasa pemrograman yang kuat dan fleksibel yang dapat mendukung berbagai tugas dan proyek dalam bidang computer vision.</p>
+<p>Terakhir, Python juga menawarkan kemudahan dalam visualisasi data dan hasil. Dengan menggunakan perpustakaan seperti Matplotlib dan Seaborn, pengguna dapat dengan mudah memvisualisasikan data dan hasil dalam berbagai format.<br>
+Dengan kata lain, dengan Python, computer vision menjadi lebih mudah diakses dan dipahami, baik oleh profesional maupun pemula. Python telah membuktikan dirinya sebagai bahasa pemrograman yang kuat dan fleksibel yang dapat mendukung berbagai tugas dan proyek dalam bidang computer vision.</p>
 </section>
 <section id="d.-latihan-praktik" class="level2">
 <h2 class="anchored" data-anchor-id="d.-latihan-praktik">D. Latihan Praktik</h2>
@@ -283,14 +285,26 @@ Visi komputer saat ini digunakan dalam berbagai aplikasi dunia nyata, termasuk i
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cv2.imshow(<span class="st">'Gambar'</span>, gambar)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>cv2.waitKey(<span class="dv">0</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cv2.destroyAllWindows()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Berikut adalah fungsi dari setiap baris kode:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Penjelasan Kode
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li><p>import cv2: Ini adalah perintah untuk mengimpor library OpenCV (cv2) ke dalam program Python. OpenCV adalah library populer yang digunakan untuk memanipulasi gambar dan video.</p></li>
 <li><p>gambar = cv2.imread(‘namafile.jpg’): Baris ini membaca gambar dengan nama file ‘namafile.jpg’ menggunakan fungsi imread() dari OpenCV. Fungsi ini mengembalikan matriks NumPy yang mewakili gambar.</p></li>
 <li><p>cv2.imshow(‘Gambar’, gambar): Ini adalah perintah untuk menampilkan gambar ke jendela dengan judul ‘Gambar’. Fungsi imshow() dari OpenCV digunakan untuk menampilkan gambar dalam jendela.</p></li>
 <li><p>cv2.waitKey(0): Baris ini menunggu pengguna menekan tombol apa pun untuk melanjutkan eksekusi program. Nilai argumen 0 menunjukkan bahwa program akan tetap berjalan sampai tombol ditekan.</p></li>
-<li><p>cv2.destroyAllWindows(): Ini adalah perintah untuk menutup semua jendela yang dibuka oleh program. Fungsi destroyAllWindows() digunakan untuk membersihkan semua jendela tampilan.</p></li>
+<li><p>cv2.destroyAllWindows(): Ini adalah perintah untuk menutup semua jendela yang dibuka oleh program. Fungsi destroyAllWindows() digunakan untuk membersihkan semua jendela tampilan.<br>
+</p></li>
 </ul>
+</div>
+</div>
 <p><strong>Latihan 2:</strong> Mengubah Gambar ke Grayscale</p>
 <p>Banyak operasi dalam visi komputer dijalankan pada gambar grayscale. Latihan ini bertujuan untuk mengubah gambar berwarna menjadi grayscale.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -305,10 +319,22 @@ Visi komputer saat ini digunakan dalam berbagai aplikasi dunia nyata, termasuk i
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>cv2.imshow(<span class="st">'Gambar Grayscale'</span>, gray)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>cv2.waitKey(<span class="dv">0</span>)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>cv2.destroyAllWindows()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Berikut adalah fungsi dari setiap baris kode:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Penjelasan Kode
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>gray = cv2.cvtColor(gambar, cv2.COLOR_BGR2GRAY): Baris ini mengubah gambar dari warna (BGR) ke skala keabuan (grayscale) menggunakan fungsi cvtColor() dari OpenCV. Fungsi ini menerima dua argumen, yaitu gambar yang ingin diubah (variabel gambar) dan konversi warna yang ingin dilakukan (dalam hal ini, dari BGR ke grayscale). Hasil konversi disimpan dalam variabel gray.</li>
+<li>gray = cv2.cvtColor(gambar, cv2.COLOR_BGR2GRAY): Baris ini mengubah gambar dari warna (BGR) ke skala keabuan (grayscale) menggunakan fungsi cvtColor() dari OpenCV. Fungsi ini menerima dua argumen, yaitu gambar yang ingin diubah (variabel gambar) dan konversi warna yang ingin dilakukan (dalam hal ini, dari BGR ke grayscale). Hasil konversi disimpan dalam variabel gray.<br>
+</li>
 </ul>
+</div>
+</div>
 <p><strong>Latihan 3:</strong> Deteksi Tepi</p>
 <p>Deteksi tepi adalah teknik penting dalam visi komputer. Latihan ini bertujuan untuk menerapkan deteksi tepi pada gambar.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -327,10 +353,22 @@ Visi komputer saat ini digunakan dalam berbagai aplikasi dunia nyata, termasuk i
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>cv2.imshow(<span class="st">'Deteksi Tepi'</span>, edges)</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>cv2.waitKey(<span class="dv">0</span>)</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>cv2.destroyAllWindows()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Berikut adalah fungsi dari setiap baris kode:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Penjelasan Kode
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>edges = cv2.Canny(gray, 30, 100): Baris ini menerapkan deteksi tepi pada gambar skala keabuan (grayscale) menggunakan metode Canny dengan parameter threshold lower dan upper sebesar 30 dan 100. Fungsi Canny() dari OpenCV menghasilkan gambar dengan tepi yang terdeteksi, yang disimpan dalam variabel edges.</li>
+<li>edges = cv2.Canny(gray, 30, 100): Baris ini menerapkan deteksi tepi pada gambar skala keabuan (grayscale) menggunakan metode Canny dengan parameter threshold lower dan upper sebesar 30 dan 100. Fungsi Canny() dari OpenCV menghasilkan gambar dengan tepi yang terdeteksi, yang disimpan dalam variabel edges.<br>
+</li>
 </ul>
+</div>
+</div>
 <p><strong>Latihan 4:</strong> Deteksi Wajah</p>
 <p>Pustaka OpenCV menyediakan pretrained cascade classifiers yang dapat digunakan untuk deteksi wajah dan fitur wajah lainnya.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -355,12 +393,24 @@ Visi komputer saat ini digunakan dalam berbagai aplikasi dunia nyata, termasuk i
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>cv2.imshow(<span class="st">'Deteksi Wajah'</span>, gambar)</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>cv2.waitKey(<span class="dv">0</span>)</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>cv2.destroyAllWindows()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Berikut adalah fungsi dari setiap baris kode:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip with Title
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li><p>face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + “haarcascade_frontalface_default.xml”): Baris ini membuat objek cascade classifier untuk mendeteksi wajah. Cascade classifier adalah algoritma yang digunakan untuk mendeteksi objek dalam gambar berdasarkan fitur-fitur yang telah ditraining sebelumnya. Dalam hal ini, digunakan cascade classifier untuk mendeteksi wajah dengan menggunakan file XML yang disebut “haarcascade_frontalface_default.xml”. File XML ini berisi informasi tentang fitur-fitur yang relevan untuk mendeteksi wajah.</p></li>
 <li><p>faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30)): Baris ini mendeteksi wajah dalam gambar menggunakan metode detectMultiScale() dari cascade classifier. Metode ini menerima gambar skala keabuan (gray) sebagai input dan mengembalikan array yang berisi koordinat wajah yang terdeteksi. Parameter-parameter yang digunakan adalah scaleFactor (faktor skala untuk deteksi multi-skala), minNeighbors (jumlah minimum tetangga yang harus ada agar wajah dianggap valid), dan minSize (ukuran minimum wajah yang diterima).</p></li>
-<li><p>for (x, y, w, h) in faces: cv2.rectangle(gambar, (x, y), (x+w, y+h), (0, 255, 0), 2): Baris ini menggunakan loop untuk menggambar kotak pada setiap wajah yang terdeteksi. Koordinat dan ukuran wajah yang terdeteksi (x, y, w, h) diperoleh dari array wajah yang ditemukan sebelumnya. Kotak tersebut digambar menggunakan fungsi rectangle() dari OpenCV pada gambar asli (variabel gambar).</p></li>
+<li><p>for (x, y, w, h) in faces: cv2.rectangle(gambar, (x, y), (x+w, y+h), (0, 255, 0), 2): Baris ini menggunakan loop untuk menggambar kotak pada setiap wajah yang terdeteksi. Koordinat dan ukuran wajah yang terdeteksi (x, y, w, h) diperoleh dari array wajah yang ditemukan sebelumnya. Kotak tersebut digambar menggunakan fungsi rectangle() dari OpenCV pada gambar asli (variabel gambar).<br>
+</p></li>
 </ul>
+</div>
+</div>
 <p>Harap diingat bahwa setiap latihan ini hanyalah awal. Visi komputer adalah bidang yang sangat luas dengan banyak teknik dan algoritma yang berbeda. Untuk benar-benar mahir, Anda perlu memahami teori di balik teknik ini dan bagaimana menerapkannya dalam situasi nyata.</p>
 </section>
 <section id="e.-sesi-tanya-jawab-dan-diskusi" class="level2">
@@ -402,6 +452,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
