@@ -7,11 +7,18 @@ book:
   date: "7/28/2023"
   chapters:
     - index.qmd
-    - 1_Pengenalan_Computer_Vision_dan_Python.qmd
-    - 2_Python.qmd
-    - 3_Dasar_dasar_Image_Processing.qmd
-    - 4_Feature_Extraction_and_Matching.qmd
-    - Studi_Kasus.qmd
+    - part: Konsep.qmd
+      chapters: 
+        - 1_Pengenalan_Computer_Vision_dan_Python.qmd
+        - 2_Python.qmd
+        - 3_Dasar_dasar_Image_Processing.qmd
+        - 4_Feature_Extraction_and_Matching.qmd
+    - part: daftar_studi_kasus.qmd
+      chapters:
+        - Studi_Kasus_1.qmd
+        - Studi_Kasus_2.qmd
+        - Studi_Kasus_3.qmd
+        - Studi_Kasus_4.qmd
 
 format:
   html:

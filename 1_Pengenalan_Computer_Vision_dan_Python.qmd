@@ -1,4 +1,4 @@
-# Modul 1. Pengenalan Computer Vision dan Python {.unnumbered}  
+# 1 Pengenalan Computer Vision dan Python {.unnumbered}  
 
 Chapter ini membahas pengenalan Computer Vision dan Python dalam konteks visi komputer. Bagian pertama menjelaskan konsep dasar Computer Vision, tantangan yang dihadapinya, dan manfaatnya dalam berbagai bidang industri. Bagian kedua memperkenalkan Python sebagai bahasa pemrograman yang kuat dan populer dalam visi komputer, dengan pustaka seperti NumPy dan OpenCV yang mendukung pengembangan solusi analisis gambar dan video. Bagian selanjutnya membahas penggunaan Python untuk visi komputer, termasuk membaca gambar, melakukan operasi pada gambar, dan menggunakan algoritma untuk mengenali objek. Dilanjutkan dengan latihan praktik untuk mengaplikasikan konsep yang telah dipelajari. Terakhir, terdapat sesi tanya jawab dan diskusi untuk berinteraksi, mengatasi tantangan, dan berbagi wawasan tentang visi komputer dan penggunaan Python dalam bidang tersebut.  
 
@@ -7,12 +7,12 @@ Chapter ini membahas pengenalan Computer Vision dan Python dalam konteks visi ko
 Visi komputer adalah bidang ilmu komputer yang bertujuan untuk memungkinkan komputer memproses dan mengidentifikasi gambar dan video dengan cara yang sama seperti penglihatan manusia. Visi komputer bertujuan untuk meniru sistem visual manusia. Tujuan utamanya adalah membangun sistem buatan yang dapat mengekstrak informasi dari gambar, yaitu membuat komputer memahami gambar dan video. Data gambar dapat berupa urutan video, gambar kedalaman, pandangan dari beberapa kamera, atau data multidimensional dari sensor gambar. Tujuan utama visi komputer adalah menggambarkan sebuah scene dunia nyata dalam satu atau lebih gambar, dan mengidentifikasi serta merekonstruksi propertinya, seperti karakteristik warna, informasi bentuk, karakteristik tekstur, pencahayaan scene, dan sebagainya.     
 
 <div style="text-align:center">
-![  ](Asset/image1.png)  
+![](Asset/image1.png)  
 
-![Gambar 1: Sistem penglihatan manusia (a) vs. visi komputer (b)](Asset/image2.png)   
+![Gambar 1.1: Sistem penglihatan manusia (a) vs. visi komputer (b)](Asset/image2.png)   
 </div>  
 
-Kita dapat melihat kesamaan antara sistem penglihatan manusia dan sistem visi komputer. Seperti yang diilustrasikan dalam Gambar 1, prinsip dasar dari kedua sistem ini hampir sama, yaitu konversi cahaya menjadi sinyal/informasi yang berguna untuk membangun model akurat dari dunia fisik. Demikian pula, jika dilihat secara keseluruhan, struktur visi manusia dan visi komputer agak mirip, yaitu keduanya memiliki sensor cahaya yang mengubah foton menjadi sinyal (gambar), langkah pemrosesan, dan akhirnya mekanisme untuk menginterpretasi sinyal (pengenalan objek).    
+Kita dapat melihat kesamaan antara sistem penglihatan manusia dan sistem visi komputer. Seperti yang diilustrasikan dalam Gambar 1.1, prinsip dasar dari kedua sistem ini hampir sama, yaitu konversi cahaya menjadi sinyal/informasi yang berguna untuk membangun model akurat dari dunia fisik. Demikian pula, jika dilihat secara keseluruhan, struktur visi manusia dan visi komputer agak mirip, yaitu keduanya memiliki sensor cahaya yang mengubah foton menjadi sinyal (gambar), langkah pemrosesan, dan akhirnya mekanisme untuk menginterpretasi sinyal (pengenalan objek).    
 
 Perbedaan antara visi komputer, pemrosesan gambar, dan grafika komputer dapat disimpulkan sebagai berikut:    
 
@@ -25,15 +25,15 @@ Visi komputer membuat model dari gambar (analisis), sedangkan grafika komputer m
 
 Dalam persamaan ini, P(Dunia|Gambar) merupakan Visi Komputer, P(Dunia) mengacu pada pemodelan objek dalam dunia nyata, dan P(Gambar|Dunia) adalah Grafika Komputer. Perspektif ini mendorong pendekatan pembelajaran statistik. Oleh karena itu, visi komputer berkaitan dengan pengembangan mesin-mesin yang dapat melihat dan berinteraksi dengan dunia.    
 
-Konsep ini diilustrasikan dalam Gambar 2.    
+Konsep ini diilustrasikan dalam Gambar 1.2.    
 <div style="text-align:center">
-![Gambar 2: Visi Komputer vs Grafika Komputer](Asset/image4.png)  
+![Gambar 1.2: Visi Komputer vs Grafika Komputer](Asset/image4.png)  
 </div>
 
-Visi komputer saat ini digunakan dalam berbagai aplikasi dunia nyata, termasuk inspeksi mesin, pengenalan karakter optik (OCR), pembangunan model 3D (fotogrametri), analisis gambar medis, pengawasan video otomatis, biometrik, fusi dan penyambungan gambar, morphing, pemodelan 3D, dan lain-lain. Seperti yang ditunjukkan dalam Gambar 3, visi komputer terkait dengan banyak bidang penelitian penting.    
+Visi komputer saat ini digunakan dalam berbagai aplikasi dunia nyata, termasuk inspeksi mesin, pengenalan karakter optik (OCR), pembangunan model 3D (fotogrametri), analisis gambar medis, pengawasan video otomatis, biometrik, fusi dan penyambungan gambar, morphing, pemodelan 3D, dan lain-lain. Seperti yang ditunjukkan dalam Gambar 1.3., visi komputer terkait dengan banyak bidang penelitian penting.    
 
 <div style="text-align:center">
-![Gambar 3: Computer vision dan disiplin terkait](Asset/image5.png)  
+![Gambar 1.3: Computer vision dan disiplin terkait](Asset/image5.png)  
 </div>  
 
 Selain itu, visi komputer juga menghadapi tantangan etika dan privasi. Penggunaan visi komputer dalam pengawasan dan pengenalan wajah telah menimbulkan pertanyaan tentang privasi dan hak individu. Bagaimana data visual dikumpulkan, digunakan, dan disimpan perlu diatur dengan hati-hati untuk melindungi privasi individu dan mencegah penyalahgunaan teknologi.    
@@ -177,7 +177,7 @@ cv2.destroyAllWindows()
 
 ```  
 ::: {.callout-tip}
-## Tip with Title  
+## Penjelasan Kode
 
 - face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml"): Baris ini membuat objek cascade classifier untuk mendeteksi wajah. Cascade classifier adalah algoritma yang digunakan untuk mendeteksi objek dalam gambar berdasarkan fitur-fitur yang telah ditraining sebelumnya. Dalam hal ini, digunakan cascade classifier untuk mendeteksi wajah dengan menggunakan file XML yang disebut "haarcascade_frontalface_default.xml". File XML ini berisi informasi tentang fitur-fitur yang relevan untuk mendeteksi wajah.  
 

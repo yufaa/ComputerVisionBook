@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computer Vision - Studi Kasus</title>
+<title>Computer Vision - Sistem Klasifikasi Gambar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./4_Feature_Extraction_and_Matching.html" rel="prev">
+<link href="./daftar_studi_kasus.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Studi_Kasus.html">Studi Kasus</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Studi_Kasus.html">Sistem Klasifikasi Gambar</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -139,37 +139,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Computer Vision</span></a>
+ <span class="menu-text">Pengantar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Konsep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Konsep</strong></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1_Pengenalan_Computer_Vision_dan_Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modul 1. Pengenalan Computer Vision dan Python</span></a>
+ <span class="menu-text">1 Pengenalan Computer Vision dan Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2_Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modul 2. Python</span></a>
+ <span class="menu-text">2 Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./3_Dasar_dasar_Image_Processing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modul 3. Dasar-dasar Image Processing</span></a>
+ <span class="menu-text">3 Dasar-dasar Image Processing</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_Feature_Extraction_and_Matching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modul 4. Feature Extraction and Matching</span></a>
+ <span class="menu-text">4 Feature Extraction and Matching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./daftar_studi_kasus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Studi Kasus</strong></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Studi_Kasus.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Studi Kasus</span></a>
+ <span class="menu-text">Sistem Klasifikasi Gambar</span></a>
   </div>
 </li>
     </ul>
@@ -182,11 +194,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sistem-klasifikasi-gambar" id="toc-sistem-klasifikasi-gambar" class="nav-link active" data-scroll-target="#sistem-klasifikasi-gambar">Sistem Klasifikasi Gambar</a>
-  <ul class="collapse">
+  <li><a href="#desain-sistem" id="toc-desain-sistem" class="nav-link active" data-scroll-target="#desain-sistem">Desain Sistem</a></li>
+  <li><a href="#implementasi-sistem" id="toc-implementasi-sistem" class="nav-link" data-scroll-target="#implementasi-sistem">Implementasi Sistem</a></li>
+  <li><a href="#akuisisi-data" id="toc-akuisisi-data" class="nav-link" data-scroll-target="#akuisisi-data">Akuisisi Data</a></li>
   <li><a href="#fitur-ekstraksi" id="toc-fitur-ekstraksi" class="nav-link" data-scroll-target="#fitur-ekstraksi">Fitur Ekstraksi</a></li>
   <li><a href="#algoritma-klasifikasi" id="toc-algoritma-klasifikasi" class="nav-link" data-scroll-target="#algoritma-klasifikasi">Algoritma Klasifikasi</a></li>
-  </ul></li>
+  <li><a href="#evaluasi-sistem" id="toc-evaluasi-sistem" class="nav-link" data-scroll-target="#evaluasi-sistem">Evaluasi Sistem</a></li>
   </ul>
 </nav>
     </div>
@@ -195,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Studi Kasus</h1>
+<h1 class="title">Sistem Klasifikasi Gambar</h1>
 </div>
 
 
@@ -210,9 +223,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="sistem-klasifikasi-gambar" class="level2">
-<h2 class="anchored" data-anchor-id="sistem-klasifikasi-gambar">Sistem Klasifikasi Gambar</h2>
-<p><strong>Latihan Praktik</strong></p>
+<p><strong>Sistem Klasifikasi Jenis Kendaraan dengan Fitur Berbasis SIFT, Bag of Visual Words, dan Klasifikasi SVM dan KNN</strong></p>
+<section id="desain-sistem" class="level2">
+<h2 class="anchored" data-anchor-id="desain-sistem">Desain Sistem</h2>
+<p>Dalam proyek ini, kita akan merancang sistem menggunakan metode ekstraksi fitur Scale-Invariant Feature Transform (SIFT) dan model klasifikasi Support Vector Machine (SVM). Desain umum meliputi:</p>
+<ul>
+<li>Preprocessing Data: Gambar dari dataset Citra Wajah akan diubah ke skala abu-abu dan dinormalisasi.</li>
+<li>Ekstraksi Fitur: Menggunakan metode SIFT untuk mengekstrak fitur dari setiap gambar.</li>
+<li>Klasifikasi Gambar: Setelah fitur diekstrak, SVM dan KNN akan digunakan untuk klasifikasi gambar.</li>
+<li>Pelatihan dan Pengujian: Model SVM akan dilatih menggunakan fitur dari gambar pelatihan dan kinerjanya akan diuji pada data pengujian.</li>
+</ul>
+</section>
+<section id="implementasi-sistem" class="level2">
+<h2 class="anchored" data-anchor-id="implementasi-sistem">Implementasi Sistem</h2>
+<p>Dalam proyek ini, kita akan merancang sistem menggunakan metode ekstraksi fitur Scale-Invariant Feature Transform (SIFT) dan model klasifikasi Support Vector Machine (SVM). Desain umum meliputi:</p>
+<ul>
+<li>Preprocessing Data: Gambar dari dataset Citra Wajah akan diubah ke skala abu-abu dan dinormalisasi.</li>
+<li>Ekstraksi Fitur: Menggunakan metode SIFT untuk mengekstrak fitur dari setiap gambar.</li>
+<li>Klasifikasi Gambar: Setelah fitur diekstrak, SVM dan KNN akan digunakan untuk klasifikasi gambar.</li>
+<li>Pelatihan dan Pengujian: Model SVM akan dilatih menggunakan fitur dari gambar pelatihan dan kinerjanya akan diuji pada data pengujian.</li>
+</ul>
 <p>Latihan ini memandu Anda melalui langkah-langkah membuat sistem klasifikasi gambar sendiri dengan SIFT, BoVW, dan SVM. Anda akan:</p>
 <ul>
 <li>Memuat dan memproses dataset gambar Anda sendiri.</li>
@@ -222,18 +252,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Mengevaluasi performa model Anda pada data pengujian.</li>
 </ul>
 <p>Latihan ini memberikan pemahaman yang lebih baik tentang bagaimana sistem klasifikasi gambar bekerja dengan menggunakan metode ekstraksi fitur dan model klasifikasi.</p>
-<p><strong>Evaluasi Sistem</strong><br>
-Evaluasi sistem melibatkan perbandingan antara kelas sebenarnya dan kelas yang diprediksi oleh model.</p>
-<ul>
-<li>Evaluasi In-Sample: Selama proses pelatihan, akurasi pada data pelatihan akan dihitung.<br>
-</li>
-<li>Evaluasi Out-of-Sample: Setelah model dilatih, akurasi pada data pengujian akan dihitung.</li>
-</ul>
-<p><strong>Dataset</strong></p>
+</section>
+<section id="akuisisi-data" class="level2">
+<h2 class="anchored" data-anchor-id="akuisisi-data">Akuisisi Data</h2>
 <p>Dataset yang digunakan terdiri dari 3 label yaitu label Kirei, Putri, dan Yudha dengan total sejumlah 353 citra berukuran 3024x3024 pixel.<br>
 Tiap label memiliki jumlah yang berbeda-beda, label Kirei sejumlah 107 citra, label Putri sejumlah 115 citra, dan label Yudha sejumlah 131 citra. Dataset yang terkumpul memiliki nilai eksposure yang bervariasi yaitu -2, -1, 0, 1, 2, sehingga setiap citra di dataset memiliki variasi nilai pixel yang cukup besar.</p>
-<section id="fitur-ekstraksi" class="level3">
-<h3 class="anchored" data-anchor-id="fitur-ekstraksi">Fitur Ekstraksi</h3>
 <p><strong>Mengimport Library yang dibutuhkan</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -244,7 +267,7 @@ Tiap label memiliki jumlah yang berbeda-beda, label Kirei sejumlah 107 citra, la
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Asset/strukturdataset.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Struktur Dataset</figcaption>
+<figcaption class="figure-caption">Gamabar 1. Struktur Dataset</figcaption>
 </figure>
 </div>
 </div>
@@ -277,6 +300,9 @@ Tip
 <p>Hasil dari Kode diatas adalah list PATH seperti ../folder/sub-folder/file-citra (Dataset/Putri/img1; Dataset/Putri/img2; Dataset/Putri/img3; dst) yang nanti akan digunakan saat membaca setiap citra pada tahap berikutnya.</p>
 </div>
 </div>
+</section>
+<section id="fitur-ekstraksi" class="level2">
+<h2 class="anchored" data-anchor-id="fitur-ekstraksi">Fitur Ekstraksi</h2>
 <p><strong>Mengekstrak Fitur Menggunakan Algoritma SIFT</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inisialisasi variabel untuk menyimpan deskriptor dari Algoritma SIFT</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>des_list <span class="op">=</span> []</span>
@@ -291,8 +317,8 @@ Tip
 <div style="text-align:center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Asset/visualisasiSIFT.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Ilustrasi Algoritma SIFT</figcaption>
+<p><img src="Asset/ilustrasiSIFT.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar 2. Ilustrasi Algoritma SIFT</figcaption>
 </figure>
 </div>
 </div>
@@ -306,7 +332,7 @@ Tip
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Asset/Histogram.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Histogram</figcaption>
+<figcaption class="figure-caption">Gambar 3. Histogram</figcaption>
 </figure>
 </div>
 </div>
@@ -326,7 +352,7 @@ Tip
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Asset/perhitunganHistogram.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Ilustrasi setelah Dilakukan Perhitungan Menggunakan K-Means</figcaption>
+<figcaption class="figure-caption">Gamabr 4. Ilustrasi setelah Dilakukan Perhitungan Menggunakan K-Means</figcaption>
 </figure>
 </div>
 </div>
@@ -346,8 +372,8 @@ Tip
 <p><strong>Split Data menjadi Train dan Test</strong></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(im_features, image_classes, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>image_classes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="algoritma-klasifikasi" class="level3">
-<h3 class="anchored" data-anchor-id="algoritma-klasifikasi">Algoritma Klasifikasi</h3>
+<section id="algoritma-klasifikasi" class="level2">
+<h2 class="anchored" data-anchor-id="algoritma-klasifikasi">Algoritma Klasifikasi</h2>
 <p>Lakukan Klasifikasi Menggunakan Algoritma SVM dan KNN, kemudian simpan model klasifikasi kedalam bentuk pickel.</p>
 <p><strong>Support Vector Machine(SVM)</strong></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC</span>
@@ -381,9 +407,57 @@ Tip
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="st">"knn_model_SIFT.pkl"</span></span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(filename, <span class="st">"wb"</span>) <span class="im">as</span> f:</span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    pickle.dump(knn, f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
 </section>
+<section id="evaluasi-sistem" class="level2">
+<h2 class="anchored" data-anchor-id="evaluasi-sistem">Evaluasi Sistem</h2>
+<p>Evaluasi sistem melibatkan perbandingan antara kelas sebenarnya dan kelas yang diprediksi oleh model.</p>
+<ul>
+<li>Evaluasi In-Sample: Selama proses pelatihan, akurasi pada data pelatihan akan dihitung.<br>
+</li>
+<li>Evaluasi Out-of-Sample: Setelah model dilatih, akurasi pada data pengujian akan dihitung.</li>
+</ul>
+<p><strong>Support Vector Machine</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay, classification_report</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat confusion matrix</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test, y_pred)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Mencetak confusion matrix</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Confusion Matrix:"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cm)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Memplot confusion matrix</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> np.unique(image_classes)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>display <span class="op">=</span> ConfusionMatrixDisplay(confusion_matrix<span class="op">=</span>cm, display_labels<span class="op">=</span>labels)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>display.plot(cmap<span class="op">=</span>plt.cm.Blues)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Confusion Matrix"</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Predicted Label"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"True Label"</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>K-Nearest Neighbors(KNN)</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix, classification_report</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Mencetak confusion matrix</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Confusion Matrix:"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat confusion matrix</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test, y_pred)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cm)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Memplot confusion matrix</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> np.unique(image_classes)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.imshow(cm, interpolation<span class="op">=</span><span class="st">'nearest'</span>, cmap<span class="op">=</span>plt.cm.Blues)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>ax.figure.colorbar(im, ax<span class="op">=</span>ax)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xticks<span class="op">=</span>np.arange(cm.shape[<span class="dv">1</span>]),</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>       yticks<span class="op">=</span>np.arange(cm.shape[<span class="dv">0</span>]),</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>       xticklabels<span class="op">=</span>labels, yticklabels<span class="op">=</span>labels,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>       title<span class="op">=</span><span class="st">"Confusion Matrix"</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>       ylabel<span class="op">=</span><span class="st">"True label"</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>       xlabel<span class="op">=</span><span class="st">"Predicted label"</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -737,8 +811,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./4_Feature_Extraction_and_Matching.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Modul 4. Feature Extraction and Matching</span>
+      <a href="./daftar_studi_kasus.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><strong>Studi Kasus</strong></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

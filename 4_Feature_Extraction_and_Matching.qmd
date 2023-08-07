@@ -1,4 +1,4 @@
-# Modul 4. Feature Extraction and Matching {.unnumbered}
+# 4 Feature Extraction and Matching {.unnumbered}
 
 ## A. Pengenalan Feature Extraction and Matching  
 Ekstraksi dan Pencocokan Fitur adalah tugas penting dalam visi komputer, seperti struktur dari gerak, pengambilan gambar, dan deteksi objek.  
@@ -17,7 +17,7 @@ Komponen utama Deteksi dan Pencocokan Fitur:
 Deskriptor fitur adalah algoritme yang mengambil gambar dan menampilkan deskriptor fitur/vektor fitur. Deskriptor fitur menyandikan informasi menarik ke dalam rangkaian angka dan bertindak sebagai semacam "sidik jari" numerik yang dapat digunakan untuk membedakan satu fitur dari fitur lainnya.  
 
 <div style="text-align:center">
-![Macam-macam Feature Descriptor](Asset/image12.png)  
+![Gambar 4.1. Macam-macam Feature Descriptor](Asset/image12.png)  
 </div>
 
 Idealnya, informasi ini akan menjadi invarian di bawah transformasi citra, sehingga kita dapat menemukan kembali fitur tersebut bahkan jika citra diubah dalam beberapa cara. Setelah mendeteksi feature point, kami melanjutkan untuk menghitung deskriptor untuk masing-masingnya. Deskriptor dapat dikategorikan menjadi dua kelas:  
@@ -35,7 +35,7 @@ Macam - macam Algoritma Descriptor :
 Pencocokan fitur atau umumnya pencocokan gambar, bagian dari banyak aplikasi visi komputer seperti pendaftaran gambar, kalibrasi kamera dan pengenalan objek, adalah tugas membangun korespondensi antara dua gambar dari pemandangan/objek yang sama. Pendekatan umum untuk pencocokan citra terdiri dari pendeteksian sekumpulan poin kepentingan yang masing-masing terkait dengan deskriptor citra dari data citra. Setelah fitur dan deskriptornya diekstraksi dari dua atau lebih gambar, langkah selanjutnya adalah membuat beberapa pencocokan fitur awal antara gambar-gambar ini.  
 
 <div style="text-align:center">
-![Pencocokan gambar](Asset/image13.png)  
+![Gambar 4.2. Pencocokan gambar](Asset/image13.png)  
 </div>
 
 Secara umum, kinerja metode pencocokan berdasarkan interest point atau feature point bergantung pada properti dari feature point yang mendasarinya dan pilihan deskriptor gambar terkait. Dengan demikian, detektor dan deskriptor yang sesuai untuk konten gambar harus digunakan dalam aplikasi. Misalnya, jika gambar mengandung sel bakteri, detektor blob harus digunakan daripada detektor sudut. Tapi, jika gambar tersebut adalah pemandangan kota dari udara, detektor sudut cocok untuk menemukan struktur buatan manusia. Selain itu, pemilihan detektor dan deskriptor yang mengatasi degradasi citra sangatlah penting.  
@@ -52,22 +52,22 @@ Histogram of Oriented Gradients (HOG) adalah deskriptor fitur citra yang dapat d
  
 - Perhitungan gradien: Langkah pertama adalah menghitung gradien horizontal dan vertikal yang terpusat (Gx dan Gy) tanpa melakukan smoothing pada citra. Untuk tujuan ini, dapat digunakan operator Sobel atau operator deteksi tepi lainnya untuk mendapatkan gradien. Untuk citra berwarna, saluran warna yang memberikan magnitudo gradien tertinggi untuk setiap piksel dapat dipilih. Kemudian, magnitudo gradien dan orientasi gradien dihitung sebagai berikut:  
 <div style="text-align:center">
-    ![](Asset/image14.png)  
+![](Asset/image14.png)  
 </div>
 
 - Orientasi pengalamatan: Langkah kedua adalah pembuatan histogram sel. Untuk ini, orientasi gradien diquantisasi ke dalam bin. Setiap bin akan mendapatkan voting berdasarkan magnitudo gradien. Voting juga dapat diberi bobot dengan filter Gaussian untuk mengurangi bobot piksel-piksel di dekat tepi blok.  
 
 <div style="text-align:center">
-![Histogram of oriented gradients: (a) cell histogram and (b) orientation binning](Asset/image15.png)  
+![Gambar 4.3. Histogram of oriented gradients: (a) cell histogram and (b) orientation binning](Asset/image15.png)  
 </div>
 
-Mari kita ambil contoh ekstraksi deskriptor HOG. Untuk ini, kita menggunakan citra berukuran 64 x 128. Pertama, citra dibagi menjadi blok 16 x 16 dengan tumpang tindih 50%. Jadi, totalnya akan ada 7 x 15 = 105 blok. Setiap blok harus terdiri dari 2 x 2 sel dengan ukuran 8x8 piksel. Sekarang, orientasi gradien diquantisasi menjadi 9 bin. Di sini, voting adalah magnitudo gradien. Sekarang, voting diinterpolasi secara bilinear antara pusat bin yang berdekatan. Misalnya, misalkan orientasi adalah 75°. Kemudian, jarak antara pusat bin bin 70 dan bin 90 adalah 5° dan 15°, masing-masing. Oleh karena itu, rasio kepemilikan adalah 15/20 atau 3/4 dan 5/20 atau 1/4. Hal ini ditunjukkan secara diagramatik pada Gambar 3.24(a) dan (b). Histogram dari gradien yang diarahkan ditunjukkan pada Gambar 3.25.   
+Mari kita ambil contoh ekstraksi deskriptor HOG. Untuk ini, kita menggunakan citra berukuran 64 x 128. Pertama, citra dibagi menjadi blok 16 x 16 dengan tumpang tindih 50%. Jadi, totalnya akan ada 7 x 15 = 105 blok. Setiap blok harus terdiri dari 2 x 2 sel dengan ukuran 8x8 piksel. Sekarang, orientasi gradien diquantisasi menjadi 9 bin. Di sini, voting adalah magnitudo gradien. Sekarang, voting diinterpolasi secara bilinear antara pusat bin yang berdekatan. Misalnya, misalkan orientasi adalah 75°. Kemudian, jarak antara pusat bin bin 70 dan bin 90 adalah 5° dan 15°, masing-masing. Oleh karena itu, rasio kepemilikan adalah 15/20 atau 3/4 dan 5/20 atau 1/4. Hal ini ditunjukkan secara diagramatik pada Gambar 4.3. (a) dan (b). Histogram dari gradien yang diarahkan ditunjukkan pada Gambar 4.3(a).   
 
 - Penggabungan blok deskriptor: Histogram sel kemudian digabungkan untuk membentuk vektor fitur seperti yang ditunjukkan pada Gambar 3.26. Pada contoh kita, histogram yang diperoleh dari blok yang tumpang tindih 2 x 2 sel digabungkan menjadi vektor fitur 1-D dengan dimensi 105 x 2 x 2 x 9 = 3780.  
 - Normalisasi blok: Setiap blok dapat dinormalisasi dengan faktor normalisasi yang berbeda, seperti L2-norm, Zq-norm, Li-squared root norm, dll. Normalisasi blok membuat deskriptor invariant terhadap variasi pencahayaan dan fotometri.  
 - Deskriptor final: Deskriptor HOG akhir dapat digunakan untuk pengenalan objek. Deskriptor ini merupakan fitur untuk algoritma pembelajaran mesin, seperti Support Vector Machine (SVM).  
 <div style="text-align:center">
-    ![Hasil HOG](Asset/image16.png)
+![Gambar 4.4. Hasil HOG](Asset/image16.png)
 </div>
 
 ### Scale Invariant Feature Transform (SIFT)  
@@ -92,28 +92,31 @@ Setelah deskriptor dihitung untuk semua titik kunci, mereka dapat digunakan untu
 
 Untuk mengimplementasikan algoritma SIFT dalam Python, dapat menggunakan pustaka OpenCV. OpenCV menyediakan fungsi-fungsi untuk deteksi titik kunci, perhitungan deskriptor, dan pencocokan fitur. Dapat merujuk pada dokumentasi dan tutorial OpenCV untuk informasi detail tentang cara menggunakan algoritma SIFT dalam Python.C. Feature Matching.  
 <div style="text-align:center">
-![Implementasi Langkah algoritma SIFT](Asset/image17.png)  
+![Gambar 4.5. Implementasi Langkah algoritma SIFT](Asset/image17.png)  
 </div>
 
-Gambar 3.27 menunjukkan semua langkah implementasi dari algoritma SIFT. Langkah-langkah ini sekarang akan dijelaskan secara detail di bawah ini.    
+Gambar 4.5. menunjukkan semua langkah implementasi dari algoritma SIFT. Langkah-langkah ini sekarang akan dijelaskan secara detail di bawah ini.    
 
-- **Deteksi fitur skala-invarian:** Langkah pertama adalah mendeteksi titik-titik unik (kunci) yang dapat dipilih kembali secara berulang dengan perubahan lokasi/skala. Untuk tujuan ini, seperti yang ditunjukkan di Gambar 3.28, digunakan representasi skala dengan menghitung piramida Laplacian yang dinormalisasi skala menggunakan difference of Gaussian (DoG) multiskala. Secara khusus, DoG dari citra D(x, y, σ) diberikan oleh:    
+- **Deteksi fitur skala-invarian:** Langkah pertama adalah mendeteksi titik-titik unik (kunci) yang dapat dipilih kembali secara berulang dengan perubahan lokasi/skala. Untuk tujuan ini, seperti yang ditunjukkan di Gambar 4.6., digunakan representasi skala dengan menghitung piramida Laplacian yang dinormalisasi skala menggunakan difference of Gaussian (DoG) multiskala. Secara khusus, DoG dari citra D(x, y, σ) diberikan oleh:    
 D(x, y, σ) = L(x, y, kiσ) — L(x, y, kjσ)  
 Di mana, L(x, y, kσ) adalah hasil konvolusi dari citra asli f(x, y) dengan blur Gaussian G(x, y, kσ) pada skala kσ, dengan kata lain,  
 L(x, y, kiσ) = G(x, y, kσ) * I(x, y)   
 
 <div style="text-align:center">
-![Formasi Laplacian Pyramid](Asset/image18.png)  
+![Gambar 4.6. Formasi Laplacian Pyramid](Asset/image18.png)  
 </div>
 
-- **Deteksi puncak dalam skala-ruang:** Pada tahap ini, titik-titik ekstrem lokal dideteksi dengan mempertimbangkan baik ruang maupun skala. Tujuannya adalah untuk mengidentifikasi lokasi dan skala yang dapat diberikan secara berulang dalam pandangan yang berbeda dari adegan atau objek yang sama. Pada kasus diskrit, hal ini ditentukan dengan membandingkan dengan 26 tetangga terdekat seperti yang ditunjukkan di Gambar 3.29.   
+- **Deteksi puncak dalam skala-ruang:** Pada tahap ini, titik-titik ekstrem lokal dideteksi dengan mempertimbangkan baik ruang maupun skala. Tujuannya adalah untuk mengidentifikasi lokasi dan skala yang dapat diberikan secara berulang dalam pandangan yang berbeda dari adegan atau objek yang sama. Pada kasus diskrit, hal ini ditentukan dengan membandingkan dengan 26 tetangga terdekat seperti yang ditunjukkan di Gambar 4.7.    
+
 <div style="text-align:center">
-    ![Scale-space peak detection](Asset/image19.png)  
+![Gambar 4.7. Scale-space peak detection](Asset/image19.png)  
 </div>
 
 - **Lokalisasi titik kunci dan penolakan outlier:** Selanjutnya, skala yang memberikan ekstremum dalam perbedaan Gaussian ditetapkan sebagai skala untuk titik kunci. Namun, deteksi ekstremum dalam skala-ruang menghasilkan banyak calon titik kunci. Namun demikian, beberapa titik kunci tidak stabil. Oleh karena itu, langkah berikutnya dari algoritma ini adalah menolak beberapa titik kunci yang memiliki kontras rendah atau yang terlokalisasi buruk di sepanjang tepi. Titik kunci dengan kontras rendah sensitif terhadap noise.  
-**Penghilangan titik kunci kontras rendah:** Titik kunci dengan kontras rendah dan terlokalisasi buruk dihilangkan dengan menggunakan interpolasi subpiksel/subskala menggunakan ekspansi Taylor, yang diberikan oleh:  
-![](Asset/image111.png)   
+**Penghilangan titik kunci kontras rendah:** Titik kunci dengan kontras rendah dan terlokalisasi buruk dihilangkan dengan menggunakan interpolasi subpiksel/subskala menggunakan ekspansi Taylor, yang diberikan oleh:    
+
+![ ](Asset/image111.png)     
+
 Di mana, D dan turunannya dihitung di titik kunci calon dan x = (x, y, ) adalah offset dari titik ini. Lokasi puncak x diperkirakan dengan mempertimbangkan turunan fungsi ini terhadap x dan mengatur nilainya menjadi nol. Jika offset x lebih besar dari ambang batas yang telah ditentukan dalam dimensi manapun, maka hal ini menunjukkan bahwa puncak berada lebih dekat dengan titik kunci calon lainnya. Dalam hal ini, titik kunci calon harus diubah dan interpolasi dilakukan di sekitar titik tersebut. Jika tidak, offset ditambahkan ke titik kunci calon tersebut. Hal ini dilakukan untuk mendapatkan perkiraan yang diinterpolasi untuk lokasi puncak.  
 **Penghilangan respons tepi:** Titik-titik tepi sesuai dengan kontras tinggi dalam satu arah dan rendah dalam arah lainnya. Fungsi DoG memiliki respons kuat di sepanjang tepi gambar. Titik kunci yang memiliki lokasi yang sangat tidak terdefinisi tetapi memiliki respons tepi tinggi dihilangkan. Langkah ini meningkatkan stabilitas. Puncak yang tidak terdefinisi dengan baik dalam fungsi DoG menunjukkan kelengkungan tinggi di sepanjang tepi dan nilai rendah dalam arah tegak lurus. Kelengkungan utama dapat dihitung dengan mengevaluasi matriks Hessian. Perlu dicatat bahwa untuk puncak yang tidak terdefinisi dengan baik dalam fungsi DoG, kelengkungan utama di sepanjang tepi jauh lebih besar daripada kelengkungan utama sepanjangnya. Untuk menemukan kelengkungan utama, kita perlu mencari solusi untuk eigenvalue dari matriks Hessian orde kedua H sebagai berikut:   
 ![](Asset/image112.png)  
@@ -125,11 +128,15 @@ Dalam persamaan di atas, rasio R hanya bergantung pada rasio eigenvalue r = A1/A
 Perhitungan magnitudo dan arah untuk gradien harus dilakukan untuk setiap piksel tetangga di sekitar titik kunci dalam citra L yang telah dihaluskan dengan Gaussian. Selanjutnya, histogram orientasi dibentuk dari orientasi gradien titik sampel dalam sebuah wilayah di sekitar titik kunci. Histogram orientasi memiliki 36 bin yang mencakup rentang 360 derajat orientasi. Setiap sampel yang ditambahkan ke histogram diberi bobot berdasarkan magnitudo gradiennya dan oleh jendela lingkaran berbobot Gaussian. Puncak-puncak dalam histogram ini sesuai dengan orientasi dominan dari patch citra. Pada skala dan lokasi yang sama, dapat ada beberapa titik kunci dengan orientasi yang berbeda. Jika terdapat penugasan beberapa orientasi, titik kunci tambahan harus dibuat. Titik kunci tambahan tersebut harus memiliki lokasi dan skala yang sama dengan titik kunci asli untuk setiap orientasi tambahan. Jadi, setiap titik kunci memiliki parameter (x, y, 2, θ).  
 
 - **Deskriptor titik kunci:** Pada langkah-langkah sebelumnya, lokasi titik kunci pada skala tertentu telah ditemukan. Setelah itu, orientasi ditetapkan untuk titik kunci tersebut. Penugasan orientasi menjamin invariansi terhadap lokasi citra, skala, dan rotasi. Langkah selanjutnya adalah menghitung vektor deskriptor untuk masing-masing titik kunci. Tujuannya adalah membuat deskriptor menjadi sangat khas. Selain itu, deskriptor juga seharusnya sebagian invariant terhadap pencahayaan, sudut pandang 3D, dll. Langkah ini harus dilakukan pada citra yang paling mendekati skala titik kunci. Sebelum menghitung deskriptor, penting untuk memutar wilayah dengan nilai orientasi negatif (minus θ) yang terkait dengan titik kunci.   
-Pertama, sejumlah histogram orientasi dibuat pada subwilayah (lingkungan) piksel 4x4, dan 8 bin dialokasikan untuk setiap subwilayah tersebut. Histogram ini berasal dari magnitudo dan nilai orientasi dari sampel dalam wilayah 16x16 di sekitar titik kunci. Jadi, setiap histogram berisi sampel dari subwilayah 4x4 dari wilayah lingkungan asli. Selanjutnya, magnitudo diberi bobot dengan fungsi Gaussian. Deskriptor kemudian menjadi vektor yang berisi semua nilai dari histogram-histogram ini. Karena terdapat 4x4 = 16 histogram, masing-masing dengan 8 bin, vektor tersebut akan memiliki 128 elemen. Jadi, dimensi deskriptor atau vektor fitur akan menjadi 128. Vektor ini kemudian dinormalisasi menjadi panjang satuan untuk mengurangi efek variasi pencahayaan. Gambar 3.30 menunjukkan gradien gambar dan deskriptor titik kunci yang sesuai.   
+Pertama, sejumlah histogram orientasi dibuat pada subwilayah (lingkungan) piksel 4x4, dan 8 bin dialokasikan untuk setiap subwilayah tersebut. Histogram ini berasal dari magnitudo dan nilai orientasi dari sampel dalam wilayah 16x16 di sekitar titik kunci. Jadi, setiap histogram berisi sampel dari subwilayah 4x4 dari wilayah lingkungan asli. Selanjutnya, magnitudo diberi bobot dengan fungsi Gaussian. Deskriptor kemudian menjadi vektor yang berisi semua nilai dari histogram-histogram ini. Karena terdapat 4x4 = 16 histogram, masing-masing dengan 8 bin, vektor tersebut akan memiliki 128 elemen. Jadi, dimensi deskriptor atau vektor fitur akan menjadi 128. Vektor ini kemudian dinormalisasi menjadi panjang satuan untuk mengurangi efek variasi pencahayaan. Gambar 4.8. dan 4.9. menunjukkan gradien gambar dan deskriptor titik kunci yang sesuai.   
 
 <div style="text-align:center">
-![](Asset/image115.png) menjadi ![](Asset/image116.png)
-</div>    
+:::{layout-ncol="2"}
+![Gambar 4.8. Cameraman Image](Asset/image115.png)
+
+![Gambar 4.9. Cameraman Image dengan HOG](Asset/image116.png)
+:::   
+</div>
 
 Untuk aplikasi seperti pencarian gambar berbasis konten, fitur SIFT dapat dihitung untuk sekumpulan gambar dalam basis data, dan deskriptor-fiturnya disimpan dalam basis data tersebut. Begitu juga untuk sebuah gambar query, fitur SIFT dapat dihitung. Untuk pencocokan, deskriptor terdekat dalam basis data yang sesuai dengan deskriptor gambar query dapat ditemukan dengan menggunakan metrik jarak yang sesuai, dan gambar query tersebut dapat diambil kembali dari basis data.  
 Proses pencarian dapat dilakukan dengan membandingkan deskriptor-fitur gambar query dengan deskriptor-fitur gambar dalam basis data menggunakan metrik jarak seperti jarak Euclidean atau jarak cosine. Metrik jarak digunakan untuk mengukur sejauh mana kedua deskriptor-fitur tersebut mirip satu sama lain. Jika terdapat kemiripan yang signifikan antara deskriptor-fitur gambar query dengan deskriptor-fitur gambar dalam basis data, gambar-gambar tersebut dapat dianggap sebagai pencocokan potensial.  
@@ -160,14 +167,18 @@ Dari ketiga dokumen diatas dapat dibuat kamus atau kosakata, dengan nilai nilai 
 } 
 ```
 
-Kita memiliki 8 entri atau fitur yang nantinya akan direpresentasikan untuk dokumen 1,2, dan 3. Setiap vektor  berisi nilai yang mewakili jumlah semua kata  dalam kamus secara berurutan, untuk dokumen tertentu. Representasi vektor dari tiga kalimat sebelumnya adalah sebagai berikut:     
-![](Asset/image117.png)  
+Kita memiliki 8 entri atau fitur yang nantinya akan direpresentasikan untuk dokumen 1,2, dan 3. Setiap vektor  berisi nilai yang mewakili jumlah semua kata  dalam kamus secara berurutan, untuk dokumen tertentu. Representasi vektor dari tiga kalimat sebelumnya adalah sebagai berikut:       
+
+<div style="text-align:center">
+![Tabel 4.1 Representasi BoW](Asset/image117.png)  
+</div>
 
 Vektor-vektor ini dapat di konseptualisasikan sebagai representasi histogram dari sebuah dokumen atau sebagai vektor deskriptor yang dapat digunakan untuk pengklasifikasian.  
 
 Konsep BOVW(Bag of Visual Word) diadaptasi dari BOW(Bag of Word) serta Information Retrieval yang ada pada NLP(Natural language Processing). BOW(Bag of Wors) bekerja dengan memakai frekuensi tiap kata-kata supaya mengetahui keywoard dari dokumen dengan menghitung berapa jumlah setiap katta yang muncul di dokumen (Davida, 2018).   
 Yang membedakan BOVW dengan BOW yaitu pada BOW yang digunakan adalah kata-kata, sedangkan BOVW menggunakan fitur-fitur gambar atau bisa dikatakan pola unik pada gambar yang berperan sebagai “kata-kata” yang ada di BOW. Setelah menghitung frekuensi, maka dari perhitungan frekuensi tersebut setiap fitur-fitur gambar dibuat histogram. Fitur itu sendiri tersusun dari deskriptor dan keypoints (Davida, 2018).   
-Sesuai dengan namanya, keypoints merupakan titik-titik yang menunjukan bagian-bagian gambar yang “menonjol”. Sedangkan deskriptor adalah gambaran dari keypoint. Dengan begitu, walaupun gambar dikecilkan, diperluas, diputar, letak titik-titik keypoint-nya akan tetap sama. Histogram frekuensi yang terbentuk dapat digunakan untuk memprediksi kategori citra serta menemukan citra lainnya yang mirip atau serupa (Davida, 2018).  
+Sesuai dengan namanya, keypoints merupakan titik-titik yang menunjukan bagian-bagian gambar yang “menonjol”. Sedangkan deskriptor adalah gambaran dari keypoint. Dengan begitu, walaupun gambar dikecilkan, diperluas, diputar, letak titik-titik keypoint-nya akan tetap sama. Histogram frekuensi yang terbentuk dapat digunakan untuk memprediksi kategori citra serta menemukan citra lainnya yang mirip atau serupa (Davida, 2018).   
+
 <div style="text-align:center">
-![](Asset/image118.png)
+![Gambar 4.10. Ilustrasi BoVW](Asset/image118.png)
 </div>    

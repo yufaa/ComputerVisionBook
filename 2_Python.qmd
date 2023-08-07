@@ -1,4 +1,4 @@
-# Modul 2. Python {.unnumbered}  
+# 2 Python {.unnumbered}  
 
 ## A. Dasar-dasar Python  
 
@@ -23,18 +23,46 @@ Meskipun Python memiliki banyak keunggulan yang membuatnya menjadi salah satu ba
 Terdapat beberapa lingkungan Python yang dapat dipilih. Beberapa sistem operasi seperti Mac, Linux, Unix, dan lainnya memiliki interpreter bawaan. Interpreter tersebut mungkin mengandung semua modul tetapi tidak siap pakai untuk komputasi ilmiah. Distribusi khusus telah dibuat dan dijual kepada komunitas ilmiah, dibangun sebelumnya dengan berbagai modul ilmiah Python. Saat menggunakan distribusi ini, pengguna tidak perlu menginstal modul ilmiah secara individual. Jika modul tertentu yang diminati tidak tersedia dalam distribusi, modul tersebut dapat diinstal. Salah satu distribusi paling populer adalah Anaconda. Instruksi untuk menginstal distribusi Anaconda dapat ditemukan di [www.anaconda.com](https://www.anaconda.com/distribution/)  
 
 #### Interpreter Python  
-Interpreter Python yang terintegrasi dalam sebagian besar sistem operasi dapat dimulai dengan hanya mengetik python di jendela terminal. Ketika interpreter dimulai, prompt perintah (>>>) muncul. Perintah Python dapat dimasukkan di prompt untuk diproses. Misalnya, di Windows, ketika interpreter Python bawaan dimulai, output yang mirip dengan yang ditunjukkan di bawah ini muncul:   
-![](Asset/image6.png)  
+Interpreter Python yang terintegrasi dalam sebagian besar sistem operasi dapat dimulai dengan hanya mengetik python di jendela terminal. Ketika interpreter dimulai, prompt perintah (>>>) muncul. Perintah Python dapat dimasukkan di prompt untuk diproses. Misalnya, di Windows, ketika interpreter Python bawaan dimulai, output yang mirip dengan yang ditunjukkan di bawah ini muncul:       
+
+<div style="text-align:center">
+![Gambar 2.1. Terminal Python](Asset/image6.png)    
+</div>
+
+::: {.callout-tip} 
 Perhatikan bahwa dalam contoh di atas, interpreter Python adalah versi 3.10.5. Kemungkinan Anda mungkin memiliki versi yang berbeda.
+:::
 
 #### Distribusi Python  
 Distribusi Python Anaconda menyediakan hampir 100 modul Python ilmiah paling populer seperti perhitungan ilmiah, aljabar linear, komputasi simbolik, pemrosesan gambar, pemrosesan sinyal, visualisasi, integrasi program C/C++ ke Python, dll. Ini didistribusikan dan dikelola oleh Continuum Analytics. Ini tersedia secara gratis untuk akademisi dan tersedia dengan harga untuk semua orang lainnya. Selain berbagai modul yang dibangun ke dalam Anaconda, pemrogram dapat menginstal modul lain menggunakan manajer paket conda [Ana20b], tanpa mempengaruhi distribusi utama.
-Untuk mengakses Python dari baris perintah, mulailah 'Anaconda Prompt' yang dapat dieksekusi   
-![](Asset/image7.png)
+Untuk mengakses Python dari baris perintah, mulailah 'Anaconda Prompt' yang dapat dieksekusi.  
 
-dan kemudian ketik python.   
+<div style="text-align:center">
+![Gambar 2.2. Mencari Anaconda Prompt](Asset/image7.png)
+</div>
 
-![](Asset/image8.png) 
+dan kemudian ketik python seperti pada Gambar 2.3.     
+
+<div style="text-align:center">
+![Gambar 2.3. Terminal Anaconda](Asset/image8.png) 
+</div>  
+
+### Instalasi Python dan Lingkungannya   
+
+Instalasi Python:  
+
+- Unduh dan instal Python. Anda dapat mengunduh versi terbaru dari Python di situs web resmi Python, yaitu [www.python.org](https://www.python.org/). Pilih versi yang sesuai dengan sistem operasi dan arsitektur komputer Anda (32-bit atau 64-bit).  
+- Jalankan installer Python dan ikuti petunjuk yang ada. Pastikan untuk mencentang kotak yang mengatakan "Add Python to PATH" saat proses instalasi. Ini memudahkan Anda menjalankan Python dari command line.  
+- Verifikasi instalasi Python dengan membuka terminal atau command prompt dan mengetik python --version. Anda seharusnya melihat versi Python yang baru saja Anda instal.  
+
+
+Instalasi Anaconda:  
+
+- Unduh dan instal Anaconda / Miniconda. Anda dapat mengunduh versi terbaru dari Anaconda di situs web resmi Anaconda, yaitu [www.anaconda.com](https://www.anaconda.com/) . atau Miniconda [link Miniconda](https://docs.conda.io/en/latest/miniconda.html) Pilih versi yang sesuai dengan sistem operasi dan arsitektur komputer Anda (32-bit atau 64-bit).
+- Jalankan installer dan ikuti petunjuk yang ada. Pastikan untuk mencentang kotak yang mengatakan "Add Anaconda to my PATH variable" saat proses instalasi. Ini memudahkan Anda menjalankan Anaconda dari command line.
+- Verifikasi instalasi Anaconda dengan membuka terminal atau command prompt dan mengetik conda --version. Anda seharusnya melihat versi Anaconda / Miniconda yang baru saja Anda instal.
+
+{{< video https://youtu.be/k88q-4Bcr3Y >}}  
 
 ### Menjalankan Program Python  
 Menggunakan interpreter Python apa pun (bawaan atau dari distribusi), Anda dapat menjalankan program Anda menggunakan perintah di sistem operasi (OS) prompt perintah. Jika file firstprog.py adalah file Python yang perlu dieksekusi, kemudian ketik perintah berikut ini di OS prompt perintah.  
@@ -44,13 +72,17 @@ python latihanPython.py
 ```  
 
 Simbol >> adalah prompt terminal dan >>> mewakili prompt Python. Pendekatan terbaik untuk menjalankan program Python di bawah sistem operasi apa pun adalah dengan menggunakan Lingkungan Pengembangan Terpadu seperti IDLE atau Spyder karena memberikan kemampuan untuk mengedit file dan juga menjalankannya di bawah antarmuka yang sama.  
-Buka CMD lalu pindah Directiory menggunakan command cd  
+Buka CMD lalu pindah Directiory menggunakan command cd.    
 
-![](Asset/image9.png)  
+<div style="text-align:center">
+![Gambar 2.4. Terminal (Mengubah Directory)](Asset/image9.png)  
+</div>
 
-Jalankan  file dengan ekstensi .py  
+Jalankan  file dengan ekstensi .py seperti Gambar 2.5. 
 
-![](Asset/image10.png)  
+<div style="text-align:center">
+![Gambar 2.5. Terminal (Menjalankan Python)](Asset/image10.png)  
+</div>
 
 ### Pernyataan Dasar Python dan Jenis Data  
 **Indentasi**  
@@ -389,10 +421,10 @@ import scipy.ndimage as im
 Pada perintah pertama, hanya submodul ndimage yang dimuat. Pada perintah kedua, modul ndimage dimuat sebagai im.  
 
 ### Matplotlib  
-Matplotlib adalah perpustakaan plot 2D/3D untuk Python. Ia dirancang untuk menggunakan tipe data numpy. Matplotlib dapat digunakan untuk menghasilkan plot di dalam program Python. Contoh yang menunjukkan fitur-fitur matplotlib ditunjukkan dalam Gambar 2.1.   
+Matplotlib adalah perpustakaan plot 2D/3D untuk Python. Ia dirancang untuk menggunakan tipe data numpy. Matplotlib dapat digunakan untuk menghasilkan plot di dalam program Python. Contoh yang menunjukkan fitur-fitur matplotlib ditunjukkan dalam Gambar 2.6.   
 
 <div style="text-align:center">
-![Gambar 2.1 Ilustrasi Matplotlib](Asset/image11.png)  
+![Gambar 2.6. Ilustrasi Matplotlib](Asset/image11.png)  
 </div>
 
 Instalasi Matplotlib  
