@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Pengantar</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><strong>Pengantar</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -107,51 +107,79 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Pengantar</span></a>
+ <span class="menu-text"><strong>Pengantar</strong></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Konsep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Konsep</strong></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./Konsep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><b> Konsep </b></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1_Pengenalan_Computer_Vision_dan_Python.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 Pengenalan Computer Vision dan Python</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2_Python.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 Python</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./3_Dasar_dasar_Image_Processing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 Dasar-dasar Image Processing</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_Feature_Extraction_and_Matching.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4 Feature Extraction and Matching</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./daftar_studi_kasus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><b> Studi Kasus </b></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./daftar_studi_kasus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Studi Kasus</strong></span></a>
+  <a href="./Studi_Kasus_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 Sistem Klasifikasi Gambar</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Studi_Kasus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sistem Klasifikasi Gambar</span></a>
+  <a href="./Studi_Kasus_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 Sistem Deteksi dan Pengenalan Wajah</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Studi_Kasus_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 Sistem Klasifikasi berbasis Video Tracking</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Studi_Kasus_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning (MobileNetV2)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -162,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pengantar" id="toc-pengantar" class="nav-link active" data-scroll-target="#pengantar">Pengantar</a>
+  <li><a href="#pengantar" id="toc-pengantar" class="nav-link active" data-scroll-target="#pengantar"><strong>Pengantar</strong></a>
   <ul class="collapse">
   <li><a href="#tentang-kursus-ini" id="toc-tentang-kursus-ini" class="nav-link" data-scroll-target="#tentang-kursus-ini">Tentang Kursus ini</a></li>
   </ul></li>
@@ -202,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <section id="pengantar" class="level1 unnumbered">
-<h1 class="unnumbered">Pengantar</h1>
+<h1 class="unnumbered"><strong>Pengantar</strong></h1>
 <section id="tentang-kursus-ini" class="level2">
 <h2 class="anchored" data-anchor-id="tentang-kursus-ini">Tentang Kursus ini</h2>
 <p>Kursus ini dirancang sebagai panduan komprehensif untuk memahami dan menerapkan teknik computer vision menggunakan bahasa pemrograman Python. Kursus ini ditujukan untuk individu yang berminat dalam bidang computer vision, baik mereka yang baru memulai perjalanan mereka atau mereka yang sudah memiliki pengalaman dasar dalam bidang ini dan ingin memperdalam pengetahuan mereka.</p>
@@ -567,7 +595,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Konsep.html" class="pagination-link">
-        <span class="nav-page-text"><strong>Konsep</strong></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><b> Konsep </b></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

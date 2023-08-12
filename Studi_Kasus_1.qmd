@@ -27,7 +27,68 @@ Latihan ini memandu Anda melalui langkah-langkah membuat sistem klasifikasi gamb
 - Membuat dan melatih model SVM dan KNN Anda sendiri.  
 - Mengevaluasi performa model Anda pada data pengujian.  
 
-Latihan ini memberikan pemahaman yang lebih baik tentang bagaimana sistem klasifikasi gambar bekerja dengan menggunakan metode ekstraksi fitur dan model klasifikasi.  
+Latihan ini memberikan pemahaman yang lebih baik tentang bagaimana sistem klasifikasi gambar bekerja dengan menggunakan metode ekstraksi fitur dan model klasifikasi.   
+
+## Persiapan Environment  
+
+1. **Pembuatan Environment**  
+
+    Pembuatan Lingkungan (Environment) dapat dilihat pada [Modul 2 - Python](2_Python.qmd#instalasi-python-dan-lingkungannya)  
+
+2. **Instalasi Library pada Environment**    
+
+    Pada Studi Kasus di Course Computer Vision ini kita akan menggunakan beberapa library tambahan yang dapat kita install pada Environment yang telah kita buat sebelumnya.      
+    Daftar library yang digunakan dalam Studi Kasus Course Computer Vision:    
+
+    - opencv- python  4.8  
+    ```default
+    pip instal opencv-python
+    ```
+    - numpy    
+    ```default
+    pip instal numpy  
+    ```
+    - sklearn   
+    ```default
+    pip install scikit-learn
+    ```
+    - matplotlib   
+    ```default
+    pip install matplotlib
+    ```
+    - seaborn   
+    ```default
+    pip install seaborn
+    ```
+    - scipy  
+    ```default
+    pip install scipy
+    ```
+
+
+    Berikut ini adalah langkah-langkah Instalasinya:   
+
+    - Buka Anaconda Prompt
+    - Lakukan aktivasi pada Environment yang telah dibuat.     
+
+        ```default
+        conda activate #namaEnvirontment yang telah dibuat  
+        ```  
+    - Instal Library yang dibutuhkan.    
+
+        ```default  
+        pip instal (library yang dibutuhkan)
+        ```     
+    - Cek Instalasi  
+
+        ```default  
+        conda list
+        ```    
+        Jika nama-nama library yang diinstall sudah ada pada list, maka installasi berhasil.   
+        <div style="text-align:center">
+        ![Gambar 1. Berhasil Install matplotlib](Asset/condalist.jpg)
+        </div>  
+
 
 ## Akuisisi Data   
 
@@ -49,7 +110,7 @@ from sklearn.model_selection import train_test_split
 **Memuat Dataset**  
 
 <div style="text-align:center">
-![Gamabar 1. Struktur Dataset](Asset/strukturdataset.png)
+![Gambar 2. Struktur Dataset](Asset/strukturdataset.png)
 </div>
 
 ```python
@@ -93,7 +154,7 @@ for image_path in image_paths:
 Setelah Menjalankan Algoritma SIFT, kita akan mendapatkan Feature Feature pada setiap gambar.  
 
 <div style="text-align:center">
-![Gambar 2. Ilustrasi Algoritma SIFT](Asset/ilustrasiSIFT.png)
+![Gambar 3. Ilustrasi Algoritma SIFT](Asset/ilustrasiSIFT.png)
 </div>
 
 **Stack Fitur untuk Melakukan perhitungan Histogram**  
@@ -107,7 +168,7 @@ descriptors_float = descriptors.astype(float)  # K-Means hanya bekerja pada tipe
 ```  
 
 <div style="text-align:center">
-![Gambar 3. Histogram](Asset/Histogram.png)
+![Gambar 4. Histogram](Asset/Histogram.png)
 </div>  
 
 **Tahap Bag of Visual Word**  
@@ -130,7 +191,7 @@ for i in range(len(image_paths)):
 
 
 <div style="text-align:center">
-![Gamabr 4. Ilustrasi setelah Dilakukan Perhitungan Menggunakan K-Means](Asset/perhitunganHistogram.png)
+![Gamabr 5. Ilustrasi setelah Dilakukan Perhitungan Menggunakan K-Means](Asset/perhitunganHistogram.png)
 </div>  
 
 ::: {.callout-tip}  

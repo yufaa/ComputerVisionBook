@@ -1,2 +1,842 @@
 # 2 Sistem Deteksi dan Pengenalan Wajah   {.unnumbered}  
 
+Sebelumnya pada Studi Kasus 1, kita telah melakukan klasifikasi gambar secara menyeluruh. Pada Studi Kasus 2 ini, kita akan mengimplementasikan algoritma deteksi wajah Haar Cascade. Pada Studi Kasus kedua ini kita akan membuat project **Sistem Deteksi dan Pengenalan Wajah** dengan menggunakan 2 metode yang berbeda, yaitu:   
+
+- Algoritma Deteksi **Haar Cascade**, Algoritma Klasifikasi **K-Nearest Neighbors**.  
+- Algoritma Deteksi **Haar Cascade**, Algoritma Fitur Ekstraksi **SIFT dan BoVW**, Algoritma Klasifikasi **K-Nearest Neighbors**  
+
+## Haar Cascade - K-Nearest Neighbors    
+
+Pada Studi Kasus kali ini latihan yang dipelajari meliputi:    
+
+1. preprocessing  
+2. load gambar dalam sebuah folder      
+3. spliting dataset train test  
+4. klasifikasi model evaluasi  
+5. Find best parameter    
+
+### Preprocessing     
+
+**Haar Cascade**  
+```python
+import cv2
+import matplotlib.pyplot as plt
+
+# Load Haar Cascade classifier for face detection
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+# Load the input image
+img_path = '../dataset/Kirei/IMG_5058.jpg'
+img = cv2.imread(img_path)
+
+# Convert the image to grayscale (required for face detection)
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Detect faces in the image using the face_cascade
+faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
+
+# Show the original image with the detected face
+plt.figure(figsize=(8, 6))
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.title('Original Image with Detected Face')
+plt.axis('off')
+plt.show()
+
+
+# Draw bounding boxes around the detected faces and display the image
+for (x, y, w, h) in faces:
+    # Draw a rectangle around the detected face
+    cv2.rectangle(img, (x-5, y-5), (x + w+5, y + h+5), (0, 255, 0), 4)#beri rectangle dan beri overlap sebesar 5
+    face_roi = img[y:y+h, x:x+w]
+
+    # Show the original image with the detected faces and bounding boxes
+    
+    plt.figure(figsize=(8, 6))
+    plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    plt.title('Original Image with Detected Faces')
+    plt.axis('off')
+    plt.show()
+    plt.figure(figsize=(8, 6))
+    plt.imshow(cv2.cvtColor(face_roi, cv2.COLOR_BGR2RGB))
+    plt.title('Roi')
+    plt.axis('off')
+    plt.show()  
+```      
+Kode diatas adalah contoh implementasi dari Haar Cascade yang dapat secara otomatis mendeteksi wajah. Hasil dari deteksi wajah dapat dilihat pada **Gambar 1. Hasil Deteksi Haar Cascade**.    
+
+<div style="text-align:center">  
+::: {layout-ncol="3"}  
+![](Asset/prepro1.png)    
+
+![Gambar 1. Hasil Deteksi Haar Cascade](Asset/prepro2.png)    
+
+![](Asset/prepro3.png)    
+
+:::
+</div>
+
+**Standarisasi**
+```python
+#image preprocessing
+import cv2
+import matplotlib.pyplot as plt
+import os
+import os.path
+import numpy as np
+
+# img=cv2.imread('../dataset/Kirei/IMG_5058.jpg') #baca file gambar dari direktori dengan menggunakan open cv
+img = face_roi
+#plt digunakan untuk menampilkan plot / gambar
+plt.figure()
+plt.title("Inputan")
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)) #menampilkan gambar
+plt.show() #menampilkan plot
+
+convert = img/255.0
+plt.figure()
+plt.title("prepro standarisasi") #membuat judul pada plot
+plt.imshow(convert) #menampilkan gambar
+plt.show()
+```      
+
+<div style="text-align:center">  
+::: {layout-ncol="2"} 
+
+![Gambar 2. Citra Sebelum di Standarisasi](Asset/prepro4.png)    
+
+![Gambar 3. Citra Setelah di Standarisasi](Asset/prepro5.png)      
+
+:::
+</div>   
+  
+::: {.callout-tip}  
+Train sendiri objek baru menggunakan Cascade Trainer GUI
+[klik disini](https://amin-ahmadi.com/cascade-trainer-gui/).  
+:::
+
+
+#### Membaca data dan Memberi Label  
+
+
+**Membuat Fungi Haar Cascade**    
+
+Buat fungsi bernama **haar** yang berisi perintah untuk melakukan deteksi wajah dari input berupa citra.   
+
+```python
+def haar(img):
+    status = False
+    face_roi = []
+    # Load Haar Cascade classifier for face detection
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    # Convert the image to grayscale (required for face detection)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Detect faces in the image using the face_cascade
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
+    # Draw bounding boxes around the detected faces and display the image
+    for (x, y, w, h) in faces:
+        # Draw a rectangle around the detected face
+        face_roi = img[y:y+h, x:x+w]
+        status = True
+    return status,face_roi
+```    
+
+**Membaca Dataset**  
+
+```python
+#menentukan direktori/folder data citra yang akan dibuka
+dirname = '../dataset/'  
+
+#menentukan ukuran tinggi dan lebar gambar
+height = 225
+width = 225
+dim = (width, height)
+
+#mengumpulkan data citra yang akan dibuka dalam satu array
+tampungan_data= [] 
+tampungan_label=[]
+for path, subdirs, files in os.walk(dirname):
+    print(path)
+    for name in files:
+        img_path = (os.path.join(path, name))  #baca path data
+        if (img_path.endswith("jpg")): #dengan file berekstensi jpg
+            img = cv2.imread(img_path) #baca gambar
+            
+            path_parts = path.split('/')
+            # Mengambil elemen terakhir dari path_parts sebagai kata terakhir
+            last_word = path_parts[-1]
+            #preprocessing data / segentasi  boleh dilakukan disini
+            status, gambar_haar = haar(img)
+            if(status):
+                resized=cv2.resize(gambar_haar,dim, interpolation=cv2.INTER_LINEAR) #resize
+                tampungan_data.append(resized/255.0) #menumpuk gambar blur pada array tampungan dan di sampling
+                tampungan_label.append(last_word)
+    X = np.array(tampungan_data) 
+    y = np.array(tampungan_label)
+```     
+
+::: {.callout-tip}
+**Penjelasan Kode**  
+
+- Inisialisasi folder dataset kedalam folder **dirname**  
+- Inisialisasi tinggi dan lebar citra yang nantinya akan digunakan untuk merubah ukuran citra   
+- Deklarasikan **tampungan_data** dan **tampungan_label** sebagai list kosong  
+- Akses file yang berada pada folder dataset menggunakan fungsi **os.walk**  
+- Deteksi wajah yang terdapat pada citra kemudian ubah ukuran gambar  
+- Simpan citra hasil preprocessing kedalam list **tampungan_data** dan simpan label dari citra kedalam **tampungan_label**  
+
+:::  
+
+```python
+import seaborn as sns
+list_label=np.unique(y) #mendapatkan label unik
+label_dict = {label: idx for idx, label in enumerate(list_label)} #masukkan dalam list
+print(label_dict)
+label_numerik = [label_dict[s] for s in y] #ubah kedalam numerik
+label_numerik_array = np.array(label_numerik)
+
+# Visualisasikan jumlah dalam plot
+sns.countplot(x=label_numerik_array)
+plt.xlabel('Numeric Labels')
+plt.ylabel('Count')
+plt.title('Count Plot for Numeric Labels')
+plt.show()  
+
+# simpan dalam file npy untuk labeling
+np.save('../weight/label_knn.npy', label_dict)
+```    
+
+<div style="text-align:center">   
+![](Asset/plothaarknn.png)
+</div>
+
+#### Tampilkan Data Hasil Preprocessing  
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Randomly select 6 indices from the data
+random_indices = np.random.choice(len(X), 6, replace=False)
+
+# Plot the images
+plt.figure(figsize=(12, 8))
+for i, idx in enumerate(random_indices):
+    plt.subplot(2, 3, i+1)
+    plt.imshow(X[idx])
+    plt.title("Label: " + str(y[idx]))
+plt.tight_layout()
+plt.show()
+```   
+
+**Reshape (Merubah dimensi dari data)**
+
+```python
+print(f"awal {X.shape}")
+
+jml_data = X.shape[0]
+h = X.shape[1]
+w = X.shape[2]
+d = X.shape[3]
+flatten  = h*w*d
+#untuk shape ML itu 1 dimensi jadi X 3 dimensi harus di reshape jadi 1dimensi
+X_1d = X.reshape(jml_data, flatten)
+
+print(f"akhir {X_1d.shape}")  
+```  
+
+**Hasil kode**:   
+awal (195, 225, 225, 3)  
+akhir (195, 151875)  
+
+### Train Test Split Data  
+
+<div style="text-align:center">
+![](https://www.researchgate.net/profile/Brian-Mwandau/publication/325870973/figure/fig6/AS:639531594285060@1529487622235/Train-Test-Data-Split_W640.jpg)  
+</div>    
+
+```python
+from sklearn.model_selection import train_test_split #library untuk train test split
+
+#melakukan splitting data
+X_train, X_test, y_train, y_test = train_test_split(X_1d, label_numerik_array,test_size=0.20, stratify=y) 
+#train size adalah persentase data test yang di-split dengan proporsi label yang sama
+
+print("X_train: "+str(X_train.shape))
+print("X_test: "+str(X_test.shape))
+print("y_train: "+str(y_train.shape))
+print("y_test: "+str(y_test.shape))
+```    
+
+::: callout-tip
+Pelajari lebih dalam mengenai parameter-parameter yang terdapat pada fungsi **train_test_split**. [Klil disini](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html).  
+:::  
+
+
+### Klasifikasi KNN   
+
+**Flow Klasifikasi**   
+<div style="text-align:center">
+![](Asset/knnflow.png)
+</div>  
+
+**KNN**   
+<div style="text-align:center">
+![](https://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1531424125/Knn_k1_z96jba.png)  
+</div>    
+
+**Metode Evaluasi**   
+<div style="text-align:center">
+![](https://dataq.files.wordpress.com/2013/06/rumus.png)  
+</div>  
+
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report , confusion_matrix
+import seaborn as sns
+model = KNeighborsClassifier(n_neighbors=5, metric="minkowski") #knn dengan nilai n ditentukan
+model.fit(X_train,y_train) #pastikan model di "fit" = proses latih
+```    
+
+
+### Visualisasi Matric Distance    
+
+```python  
+# Visualize the metric distances for each label separately with different marker shapes
+plt.figure(figsize=(8, 6))
+
+# Dictionary to map label to marker shape
+marker_dict = {0: 's', 1: '^', 2: 'o'}
+# Get the distances to the k nearest neighbors for each data point
+distances, _ = model.kneighbors(X_train)
+for label in np.unique(y_train):
+    # Get the indices of data points belonging to the current label
+    label_indices = np.where(y_train == label)[0]
+    
+    # Get the distances to the k nearest neighbors for data points of the current label
+    label_distances = np.mean(distances[label_indices], axis=1)
+    
+    # Plot the distances for the current label with the corresponding marker shape
+    plt.scatter(X_train[label_indices, 0], X_train[label_indices, 1], c=label_distances, cmap='plasma', edgecolors='k', label=f"Class {label}", marker=marker_dict[label])
+
+plt.colorbar(label='Average Distance to k Nearest Neighbors')
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.title("KNN - Metric Distance Visualization for Each Label")
+plt.legend()
+plt.show()
+```    
+
+<div style="text-align:center">
+![](Asset/plt_knndistance.png)  
+</div> 
+
+#### Test Model   
+
+
+```python
+y_pred = model.predict(X_test) #predict untuk memprediksi data test
+```
+
+### Evaluasi   
+
+#### Confussion Matrix  
+
+```python
+# Create a confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+# Plot the confusion matrix
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+plt.xlabel("Predicted Labels")
+plt.ylabel("True Labels")
+plt.title("Confusion Matrix")
+plt.show()
+```    
+
+<div style="text-align:center">
+![](Asset/confusion_knn.png)  
+</div>   
+
+#### Performance  
+
+```python
+print(classification_report(y_test, y_pred)) #evaluasi hasil  
+```    
+
+<div style="text-align:center">
+![Klassifikasi Report](Asset/classreport_knn.png)  
+</div> 
+
+**support:** jumlah sampel di setiap kelas. 
+Ini memberikan gambaran tentang seberapa seimbang dataset kita dan apakah terdapat kelas yang mungkin kurang terwakili dalam dataset.
+
+**macro avg:** nilai rata-rata dari metrik evaluasi untuk setiap kelas. 
+Rata-rata ini diperoleh dengan menghitung rata-rata aritmatika dari skor presisi, recall, dan f1-score dari setiap kelas, tanpa mempertimbangkan frekuensi setiap kelas. 
+Metrik ini berguna untuk mengevaluasi performa model secara keseluruhan, terlepas dari seberapa seimbang atau tidak seimbang kelas-kelas pada dataset.
+
+**micro avg:** nilai rata-rata dari metrik evaluasi di seluruh kelas, dengan mempertimbangkan jumlah contoh yang benar diklasifikasikan secara agregat. 
+Dalam hal ini, mikro rata-rata memperlakukan setiap contoh sebagai satu unit, dan mempertimbangkan jumlah contoh yang benar diklasifikasikan sebagai satu keseluruhan. Metrik ini berguna untuk mengevaluasi performa model pada dataset yang tidak seimbang.
+
+**accuracy:** rasio antara jumlah contoh yang diklasifikasikan dengan benar dan jumlah contoh keseluruhan.
+
+**precision:** rasio antara jumlah contoh positif yang diklasifikasikan dengan benar dan jumlah contoh yang diklasifikasikan sebagai positif oleh model.
+
+**recall:** rasio antara jumlah contoh positif yang diklasifikasikan dengan benar dan jumlah contoh yang sebenarnya positif dalam dataset.
+
+**f1-score:** rata-rata harmonik dari presisi dan recall. Metrik ini menggabungkan kedua nilai untuk memberikan skor yang mencerminkan keseimbangan antara presisi dan recall.  
+
+##### Uji Testing Data Baru  
+
+```python
+import matplotlib.pyplot as plt
+import cv2
+import os
+import os.path
+import numpy as np
+
+url= '../dataset/Yudha/IMG_4828.jpg'
+img=cv2.imread(url)
+plt.figure()
+plt.title("Data Test")
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.show()
+
+#pastikan langkah preprocessing yang dilakukan sama dengan data train
+status,haarnya=haar(img)
+convert = haarnya/255.0
+img_resize = cv2.resize(convert,(225,225))
+#tampilkan hasil
+plt.figure()
+plt.title("Hasil preprocessing")
+plt.imshow(img_resize)
+plt.show()
+
+
+
+test=[img_resize.flatten()] #makukan ke list
+print(f"ukuran gambar test {img_resize.flatten().shape}") #sama dengan input shape
+
+# Mengecek hasil klasifikasi pada salah satu dataset
+probability=model.predict_proba(test)
+print(f"nilai probabilitas {probability}") #tampilkan nilai probabilitas tiap kelas
+
+
+
+for ind,val in enumerate(label_dict): #mendapatkan nama kelas dan hasil akurasi
+    print(f'{val} = {probability[0][ind]*100}%')
+    
+    
+hasil = np.argmax(probability, axis=-1) #mendapatkan kelas dari probabilitas terbaik
+key_found = [key for key, value in label_dict.items() if value == hasil] #dapatkan namanya
+print(f"prediksinya: {key_found}")
+print(f"The predicted image is : {str(hasil)} -> {key_found}")
+```  
+
+<div style="text-align:center">   
+::: {layout-ncol="2"}   
+
+![](Asset/test_knn.png)    
+
+![](Asset/test_knn2.png)   
+
+:::  
+
+</div> 
+
+
+    ukuran gambar test (151875,)
+    nilai probabilitas [[0.  0.4 0.6]]
+    Kirei = 0.0%
+    Putri = 40.0%
+    Yudha = 60.0%
+    prediksinya: ['Yudha']
+    The predicted image is : [2] -> ['Yudha'] 
+
+### Simpan Model ML  
+
+```python
+import pickle
+pickle.dump(model, open('model_haar_knn.pkl', 'wb')) #simpan dalam file.pkl
+loaded_model = pickle.load(open('model_haar_knn.pkl', 'rb')) # load model yg dibuat
+
+# result = loaded_model.predict(X_test) 
+# print(classification_report(y_test, result)) #evaluasi hasil best model
+```    
+
+
+
+
+## Haar Cascade - SIFT - BoVW - K-Nearest Neighbors      
+ 
+### Haar Cascade     
+
+Buat fungsi bernama **haar** yang berisi perintah untuk melakukan deteksi wajah dari input berupa citra.     
+
+```python 
+import cv2
+import matplotlib.pyplot as plt
+import os
+def haar(img):
+    face_roi = []
+    status = False
+    # Load Haar Cascade classifier for face detection
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    # Convert the image to grayscale (required for face detection)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Detect faces in the image using the face_cascade
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
+    # Draw bounding boxes around the detected faces and display the image
+    for (x, y, w, h) in faces:
+        # Draw a rectangle around the detected face
+        face_roi = img[y:y+h, x:x+w]
+        status = True
+    return status,face_roi
+```  
+
+### Scale Invariant Feature Transform    
+
+Deteksi Fitur menggunakan algoritma SIFT.   
+
+```python
+import cv2
+import matplotlib.pyplot as plt
+
+# Loading the image
+img = cv2.imread('../dataset/Kirei/IMG_5058.jpg')
+status,haarnya=haar(img)
+# Applying SIFT detector
+sift = cv2.SIFT_create(500)
+kpts, des = sift.detectAndCompute(haarnya, None)
+# Marking the keypoint on the image using circles
+img=cv2.drawKeypoints(haarnya, kpts , haarnya ,flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+print(f" jumlah keypoint terbentuk {len(kpts)}")
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+```    
+<div style="text-align:center">  
+![](Asset/sift.png)
+</div> 
+
+### Bag of Visual Word  
+
+```python
+import numpy as np
+#kmeans works only on float, so convert integers to float
+descriptors_float = des.astype(float)  
+
+# Perform k-means clustering and vector quantization
+
+from scipy.cluster.vq import kmeans, vq
+k = 200  #dari total 500 diambil hanya 200
+voc, variance = kmeans(obs=descriptors_float, k_or_guess=k, iter=5) 
+
+
+# Calculate the histogram of features and represent them as vector
+#vq Assigns codes from a code book to observations.
+im_features = np.zeros((1, k), "float32")
+for i in range(1):
+    words, distance = vq(des,voc)
+    for w in words:
+        im_features[i][w] += 1
+print(im_features.shape)
+print(im_features)
+```  
+
+
+### Feature Extarction  
+
+**SIFT**  
+
+```python
+#menentukan direktori/folder data citra yang akan dibuka
+dirname = '../dataset/'  
+
+#menentukan ukuran tinggi dan lebar gambar
+height = 225
+width = 225
+dim = (width, height)
+
+#BRISK is a good replacement to SIFT. ORB also works but didn;t work well for this example  
+sift = cv2.SIFT_create()
+#mengumpulkan data citra yang akan dibuka dalam satu array
+tampungan_data = [] 
+tampungan_label = []
+for path, subdirs, files in os.walk(dirname):
+    print(path)
+    for name in files:
+        img_path = (os.path.join(path, name))  #baca path data
+        if (img_path.endswith("jpg")): #dengan file berekstensi jpg
+            img = cv2.imread(img_path) #baca gambar
+            status, haarnya = haar(img)
+            if(status):
+                resized=cv2.resize(haarnya,dim, interpolation=cv2.INTER_LINEAR) #resize
+                kpts, des = sift.detectAndCompute(resized, None)
+                tampungan_data.append(des)
+                
+                path_parts = path.split('/')
+                # Mengambil elemen terakhir dari path_parts sebagai kata terakhir
+                last_word = path_parts[-1]
+                #preprocessing data / segentasi  boleh dilakukan disini
+                tampungan_label.append(last_word)
+    X = np.array(tampungan_data, dtype=object) 
+    y = np.array(tampungan_label) 
+```    
+::: {.callout-tip}
+**Penjelasan Kode**  
+
+- Inisialisasi folder dataset kedalam folder **dirname**  
+- Inisialisasi tinggi dan lebar citra yang nantinya akan digunakan untuk merubah ukuran citra   
+- Deklarasikan **tampungan_data** dan **tampungan_label** sebagai list kosong  
+- Inisialisasi object SIFT_create kedalam variabel sift
+- Akses file yang berada pada folder dataset menggunakan fungsi **os.walk**  
+- Deteksi wajah yang terdapat pada citra kemudian ubah ukuran gambar  
+- Deteksi fitur yang terdapat pada wajah
+- Simpan fitur yang telah dideteksi kedalam list **tampungan_data** dan simpan label dari fitur kedalam **tampungan_label**  
+
+::: 
+
+**Bag of Visual Word**  
+
+```python
+descriptors = None
+for descriptor in X:
+    if descriptors is None:
+        descriptors = descriptor
+    else:
+        descriptors = np.vstack((descriptors, descriptor)) #gunakan untuk menggabungkan deskriptor menjadi satu tumpukan
+
+#kmeans works only on float, so convert integers to float
+descriptors_float = descriptors.astype(float)  
+# Perform k-means clustering and vector quantization
+from scipy.cluster.vq import kmeans, vq
+
+k = 200  #k means with 100 clusters gives lower accuracy for the aeroplane example
+voc, variance = kmeans(obs=descriptors_float, k_or_guess=k, iter=5) 
+
+# Calculate the histogram of features and represent them as vector
+# vq Assigns codes from a code book to observations.
+im_features = np.zeros((len(y), k), "float32")
+for i in range(len(y)):
+    words, distance = vq(X[i],voc)
+    for w in words:
+        im_features[i][w] += 1
+print(im_features.shape)
+```     
+**Hasil Kode**  
+(195, 200)     
+Dalam tahap Bag of Visual Words, fitur-fitur visual yang terdeteksi dengan algoritma SIFT dikelompokkan menjadi kelompok-kelompok atau "kata-kata" visual menggunakan algoritma K-Means. Jumlah kelompok yang dihasilkan adalah 200, yang merupakan jumlah fitur akhir yang digunakan untuk mewakili citra secara kompak.  
+
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+list_label=np.unique(y) #mendapatkan label unik
+label_dict = {label: idx for idx, label in enumerate(list_label)} #masukkan dalam list
+print(f"{label_dict} jumlah data: {len(y)}")
+
+label_numerik = [label_dict[s] for s in y] #ubah kedalam numerik
+label_numerik_array = np.array(label_numerik)
+
+# Visualisasikan dalam jumlah dalam plot
+sns.countplot(x=label_numerik_array)
+plt.xlabel('Numeric Labels')
+plt.ylabel('Count')
+plt.title('Count Plot for Numeric Labels')
+plt.show()  
+
+# simpan dalam file npy untuk labeling
+np.save('../weight/label_knn.npy', label_dict)  
+```    
+<div style="text-align:center">
+![](Asset/plot_siftbovw.png)  
+</div> 
+
+### Train Test Split Data  
+
+```python
+from sklearn.model_selection import train_test_split #library untuk train test split
+
+#melakukan splitting data
+X_train, X_test, y_train, y_test = train_test_split(im_features, label_numerik_array,test_size=0.20, stratify=label_numerik_array) 
+#train size adalah persentase data test yang di-split dengan proporsi label yang sama
+
+print("X_train: "+str(X_train.shape))
+print("X_test: "+str(X_test.shape))
+print("y_train: "+str(y_train.shape))
+print("y_test: "+str(y_test.shape))
+```  
+
+### Klasifikasi KNN
+```python
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report , confusion_matrix
+import seaborn as sns
+model = KNeighborsClassifier(n_neighbors=5, metric="minkowski") #knn dengan nilai n ditentukan
+model.fit(X_train, y_train) #pastikan model di "fit" = proses latih
+```  
+### Visualisasi Matrix Distance
+
+```python
+import matplotlib.pyplot as plt
+
+# Visualize the metric distances for each label separately with different marker shapes
+plt.figure(figsize=(8, 6))
+distances, _ = model.kneighbors(X_train)
+
+# Dictionary to map label to marker shape
+marker_dict = {0: 's', 1: '^', 2: 'o'}
+
+for label in np.unique(y_train):
+    # Get the indices of data points belonging to the current label
+    label_indices = np.where(y_train == label)[0]
+    
+    # Get the distances to the k nearest neighbors for data points of the current label
+    label_distances = np.mean(distances[label_indices], axis=1)
+    
+    # Plot the distances for the current label with the corresponding marker shape
+    plt.scatter(X_train[label_indices, 0], X_train[label_indices, 1], c=label_distances, cmap='plasma', edgecolors='k', label=f"Class {label}", marker=marker_dict[label])
+
+plt.colorbar(label='Average Distance to k Nearest Neighbors')
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.title("KNN - Metric Distance Visualization for Each Label")
+plt.legend()
+plt.show()
+```     
+
+<div style="text-align:center">
+![](Asset/plt_sift_knndistance.png)  
+</div>  
+
+#### Testing
+```python
+y_pred = model.predict(X_test) #predict untuk memprediksi data test
+```  
+
+### Evaluasi  
+```python
+# Create a confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+# Plot the confusion matrix
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+plt.xlabel("Predicted Labels")
+plt.ylabel("True Labels")
+plt.title("Confusion Matrix")
+plt.show()
+```    
+
+<div style="text-align:center">
+![](Asset/confusion_sift_knn.png)  
+</div>
+
+```python
+print(classification_report(y_test, y_pred)) #evaluasi hasil
+```    
+
+<div style="text-align:center">
+![](Asset/classreport_sift_knn.png)  
+</div>
+
+#### Test Gambar  
+
+```python
+import matplotlib.pyplot as plt
+import cv2
+import os
+import os.path
+import numpy as np  
+
+url= '../dataset/Yudha/IMG_4828.jpg'
+img=cv2.imread(url)
+plt.figure()
+plt.title("Data Test")
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.show()
+
+#pastikan langkah preprocessing yang dilakukan sama dengan data train
+status,haarnya=haar(img)
+img_resize = cv2.resize(haarnya,(225,225))
+#tampilkan hasil
+plt.figure()
+plt.title("Hasil Haar")
+plt.imshow(cv2.cvtColor(img_resize, cv2.COLOR_BGR2RGB))
+plt.show()
+
+
+plt.figure()
+plt.title("Hasil Sift")
+# sift = cv2.SIFT_create()
+sift = cv2.SIFT_create(nfeatures=500, nOctaveLayers=9, contrastThreshold=0.03, edgeThreshold=10, sigma=1.6)
+kpts, des = sift.detectAndCompute(img_resize, None)
+# Marking the keypoint on the image using circles
+img=cv2.drawKeypoints(img_resize, kpts , img_resize ,flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+print(f" jumlah keypoint terbentuk {len(kpts)}")
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.show()
+
+
+# bovw
+#kmeans works only on float, so convert integers to float
+descriptors_float = des.astype(float)  
+# Perform k-means clustering and vector quantization
+from scipy.cluster.vq import kmeans, vq
+k = 200  #dari total 500 diambil hanya 200
+voc, variance = kmeans(obs=descriptors_float, k_or_guess=k, iter=5) 
+# Calculate the histogram of features and represent them as vector
+#vq Assigns codes from a code book to observations.
+im_features = np.zeros((1, k), "float32")
+for i in range(1):
+    words, distance = vq(des,voc)
+    for w in words:
+        im_features[i][w] += 1
+print(im_features.shape)
+
+print(f"ukuran data test {im_features.shape}") #sama dengan input shape
+
+# Mengecek hasil klasifikasi pada salah satu dataset
+probability=model.predict_proba(im_features)
+print(f"nilai probabilitas {probability}") #tampilkan nilai probabilitas tiap kelas
+
+
+
+for ind,val in enumerate(label_dict): #mendapatkan nama kelas dan hasil akurasi
+    print(f'{val} = {probability[0][ind]*100}%')
+    
+    
+hasil = np.argmax(probability, axis=-1) #mendapatkan kelas dari probabilitas terbaik
+key_found = [key for key, value in label_dict.items() if value == hasil] #dapatkan namanya
+print(f"prediksinya: {key_found}")
+print(f"The predicted image is : {str(hasil)} -> {key_found}")
+```    
+
+<div style="text-align:center">  
+::: {layout-ncol="3"} 
+
+![](Asset/test_sift_knn.png)      
+
+![](Asset/test_sift_knn2.png)    
+
+![](Asset/test_sift_knn3.png)    
+
+:::
+</div>   
+
+
+(1, 200)  
+ukuran data test (1, 200)  
+nilai probabilitas [[0.2 0.  0.8]]  
+Kirei = 20.0%  
+Putri = 0.0%  
+Yudha = 80.0%  
+prediksinya: ['Yudha']  
+The predicted image is : [2] -> ['Yudha']  
+
+### Simpan Model
+```python
+import pickle
+pickle.dump(model, open('model_haar_sift_knn.pkl', 'wb')) #simpan dalam file.pkl
+
+```    
+

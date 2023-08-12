@@ -62,7 +62,9 @@ Instalasi Anaconda:
 - Jalankan installer dan ikuti petunjuk yang ada. Pastikan untuk mencentang kotak yang mengatakan "Add Anaconda to my PATH variable" saat proses instalasi. Ini memudahkan Anda menjalankan Anaconda dari command line.
 - Verifikasi instalasi Anaconda dengan membuka terminal atau command prompt dan mengetik conda --version. Anda seharusnya melihat versi Anaconda / Miniconda yang baru saja Anda instal.
 
-{{< video https://youtu.be/k88q-4Bcr3Y >}}  
+{{< video https://youtu.be/k88q-4Bcr3Y >}}    
+
+Link repository yang terdapat pada video.[Klik disini](https://github.com/yufaa/ComputerVision/blob/main/tensorflow-install-jul-2020.ipynb)
 
 ### Menjalankan Program Python  
 Menggunakan interpreter Python apa pun (bawaan atau dari distribusi), Anda dapat menjalankan program Anda menggunakan perintah di sistem operasi (OS) prompt perintah. Jika file firstprog.py adalah file Python yang perlu dieksekusi, kemudian ketik perintah berikut ini di OS prompt perintah.  

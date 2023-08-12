@@ -4,8 +4,8 @@
 
 **Proyek 2:** [Sistem Deteksi dan Pengenalan Wajah.](Studi_Kasus_2.qmd)    
 
-**Proyek 3:** [Sistem Klasifikasi berbasis Video Tracking.](Studi_Kasus_1.qmd)    
+**Proyek 3:** [Sistem Klasifikasi berbasis Video Tracking.](Studi_Kasus_3.qmd)    
 
-**Proyek 4:** [Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning.](Studi_Kasus_1.qmd)     
+**Proyek 4:** [Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning.](Studi_Kasus_4.qmd)     
 
 
