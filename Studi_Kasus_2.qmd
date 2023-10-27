@@ -1,4 +1,6 @@
-# 2 Sistem Deteksi dan Pengenalan Wajah   {.unnumbered}  
+# Studi Kasus 2  {.unnumbered}  
+
+**Sistem Deteksi dan Pengenalan Wajah**    
 
 Sebelumnya pada Studi Kasus 1, kita telah melakukan klasifikasi gambar secara menyeluruh. Pada Studi Kasus 2 ini, kita akan mengimplementasikan algoritma deteksi wajah Haar Cascade. Pada Studi Kasus kedua ini kita akan membuat project **Sistem Deteksi dan Pengenalan Wajah** dengan menggunakan 2 metode yang berbeda, yaitu:   
 

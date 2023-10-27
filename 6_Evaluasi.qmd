@@ -1,0 +1,47 @@
+# 6 Metode Evaluasi dalam Computer Vision  {.unnumbered}     
+ 
+## Confusion Matrix    
+
+Confusion Matrix digunakan untuk mengukur performa model klasifikasi dengan membandingkan hasil klasifikasi dari model dengan nilai sebenarnya pada dataset yang digunakan. Confusion matrix terdiri dari empat jenis nilai, yaitu True Positive (TP), True Negative (TN), False Positive (FP), dan False Negative (FN). Dengan menggunakan confusion matrix, dapat diperoleh gambaran yang jelas tentang seberapa baik kinerja model klasifikasi yang digunakan dalam memprediksi data pada dataset yang diberikan.  
+Terdapat beberapa metrik yang dapat dihitung berdasarkan nilai-nilai pada confusion matrix, antara lain:  
+
+a.	Accuracy: mengukur seberapa akurat model dalam melakukan klasifikasi pada dataset. Rumusnya adalah (TP + TN) / (TP + TN + FP + FN).  
+b.	Precision: mengukur seberapa akurat model dalam memprediksi data positif. Rumusnya adalah TP / (TP + FP).  
+c.	Recall: mengukur seberapa banyak data positif yang dapat terdeteksi oleh model. Rumusnya adalah TP / (TP + FN).  
+d.	F1-Score: merupakan harmonic mean dari precision dan recall. Rumusnya adalah 2 * (Precision * Recall) / (Precision + Recall).   
+
+Berdasarkan nilai-nilai pada confusion matrix, dapat diketahui apakah model klasifikasi yang dibangun sudah bekerja dengan baik atau belum. Beberapa hal yang dapat diinterpretasikan dari confusion matrix antara lain:  
+
+- True Positive (TP): jumlah data positif yang berhasil diprediksi dengan benar oleh model.  
+- True Negative (TN): jumlah data negatif yang berhasil diprediksi dengan benar oleh model.  
+- False Positive (FP): jumlah data negatif yang salah diprediksi sebagai positif oleh model.  
+- False Negative (FN): jumlah data positif yang salah diprediksi sebagai negatif oleh model.    
+
+<div style="text-align:center">   
+![Gambar 5.8 Confussion Matrix](Asset/confusion_matrix.png)
+</div> 
+
+
+**Confusion Matrix Multiclass**  
+
+ [Confusion Matrix Multiclass](https://www.analyticsvidhya.com/blog/2021/06/confusion-matrix-for-multi-class-classification/). 
+ 
+ Confusion Matrix  juga dapat digunakan untuk menganalisis performa model pada data dengan multi kelas atau multi class.      
+
+Dalam konteks data multi class, confusion matrix akan memiliki dimensi yang sesuai dengan jumlah kelas yang ada. Setiap sel dalam matriks mewakili jumlah sampel yang diklasifikasikan dengan benar atau salah ke suatu kelas tertentu. Baris dalam matriks mewakili kelas sebenarnya, sedangkan kolom mewakili kelas yang diprediksi oleh model.  
+ 
+Dengan menggunakan confusion matrix pada data multi class, kita dapat menghitung metrik evaluasi seperti akurasi, presisi, recall, dan F1-score untuk setiap kelas secara individu. Akurasi mengukur sejauh mana model secara keseluruhan mengklasifikasikan dengan benar, sedangkan presisi, recall, dan F1-score memberikan wawasan lebih rinci tentang kinerja model untuk setiap kelas secara terpisah.   
+
+## K-Fold Validation  
+
+K-Fold adalah teknik dalam validasi silang (cross-validation) yang umum digunakan dalam proses tuning atau penyetelan model. Dalam K-Fold, dataset dibagi menjadi K subset atau lipatan (folds) yang sama ukurannya. Kemudian, model dilatih dan dievaluasi K kali.      
+
+Pada setiap iterasi, salah satu lipatan digunakan sebagai set validasi, sementara K-1 lipatan lainnya digunakan sebagai set pelatihan. Proses ini diulang K kali, dengan setiap lipatan bertindak sebagai set validasi sekali. Hasil evaluasi dari setiap iterasi digunakan untuk menghitung metrik performa rata-rata, seperti akurasi atau rata-rata peringkat kesalahan, yang mencerminkan performa model secara keseluruhan.      
+
+Penggunaan K-Fold memungkinkan kita untuk mendapatkan perkiraan performa yang lebih stabil dan dapat diandalkan dari model, karena model diuji dengan variasi lipatan yang berbeda. Selain itu, K-Fold juga membantu dalam menghindari bias pemilihan dataset validasi yang spesifik.      
+
+Dalam konteks penyetelan model, K-Fold digunakan untuk mengevaluasi performa model dengan berbagai kombinasi hyperparameter yang berbeda. Setiap kombinasi dianalisis menggunakan validasi silang K-Fold, dan hasilnya digunakan untuk memilih kombinasi hyperparameter yang paling optimal atau untuk membandingkan beberapa model yang berbeda.     
+
+<div style="text-align:center">   
+![Gambar 5.7 Confussion Matrix](Asset/kfold.png)
+</div>    

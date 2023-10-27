@@ -42,7 +42,9 @@ Secara umum, kinerja metode pencocokan berdasarkan interest point atau feature p
 Macam - macam Algoritma Pencocokan:   
 
 - Brute-Force Matcher  
-- FLANN(Fast Library for Aproximate Nearest Neighbors) Matcher  
+- FLANN(Fast Library for Aproximate Nearest Neighbors) Matcher     
+
+### Template Matching
 
 ## B. HOG dan SIFT  
 

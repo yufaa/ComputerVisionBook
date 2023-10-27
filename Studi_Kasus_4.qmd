@@ -1,4 +1,6 @@
-# 4 Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning (MobileNetV2)   {.unnumbered}   
+# Studi Kasus 4  {.unnumbered}  
+
+**4 Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning (MobileNetV2)**  
 
 latihan yang dipelajari meliputi:    
 
@@ -310,6 +312,15 @@ print(f"prediksinya: {key_found}")
 print(f"The predicted image is : {str(hasil)} -> {key_found}")
 ```     
 
+<div style="text-align:center">   
+::: {layout-ncol="2"}   
+
+![](Asset/test_knn.png)    
+
+![](Asset/test_knn2.png)   
+
+:::  
+</div>
 
 
 ukuran gambar test (1, 224, 224, 3)  
@@ -386,7 +397,13 @@ while (cap.isOpened()):
 cap.release()
 cv2.destroyAllWindows()
 cv2.waitKey(1)
-```  
+```     
+
+<div style="text-align:center">     
+
+![](Asset/test_tflearning.png)    
+
+</div> 
 
 ### Menggunakan Input Video  
 
@@ -438,9 +455,13 @@ while cap.isOpened():
 cap.release()
 cv2.destroyAllWindows()
 cv2.waitKey(1)
-```
+```    
 
+<div style="text-align:center">     
 
+![](Asset/testtflearning_input.png)    
+
+</div> 
 
 
     

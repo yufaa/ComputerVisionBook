@@ -1,6 +1,8 @@
 # 3 Dasar-dasar Image Processing {.unnumbered}  
 
-Pada Modul ini membahas dasar-dasar image processing membahas konsep dasar dalam Image Processing, yang merupakan bagian penting dari Computer Vision. Anda akan mempelajari definisi Image Processing, aplikasinya dalam kehidupan sehari-hari, dan perbedaannya dengan Computer Vision. Selain itu, Anda akan memahami konsep dasar citra digital, termasuk operasi transformasi, filtering, dan edge detection. Penggunaan Python untuk Image Processing juga akan diajarkan, termasuk instalasi dan penggunaan library seperti OpenCV, TensorFlow, dan Keras. Modul ini juga mencakup latihan praktik untuk mengaplikasikan konsep dan teknik yang telah dipelajari. Dengan menyelesaikan Modul 2, Anda akan memiliki pemahaman yang kuat tentang dasar-dasar Image Processing dan keterampilan untuk mengimplementasikannya menggunakan Python.   
+Pada Modul ini membahas dasar-dasar image processing membahas konsep dasar dalam Image Processing, yang merupakan bagian penting dari Computer Vision. Anda akan mempelajari definisi Image Processing, aplikasinya dalam kehidupan sehari-hari, dan perbedaannya dengan Computer Vision. Selain itu, Anda akan memahami konsep dasar citra digital, termasuk operasi transformasi, filtering, dan edge detection. Penggunaan Python untuk Image Processing juga akan diajarkan, termasuk instalasi dan penggunaan library seperti OpenCV, TensorFlow, dan Keras. Modul ini juga mencakup latihan praktik untuk mengaplikasikan konsep dan teknik yang telah dipelajari. Dengan menyelesaikan Modul 2, Anda akan memiliki pemahaman yang kuat tentang dasar-dasar Image Processing dan keterampilan untuk mengimplementasikannya menggunakan Python.     
+
+{{< video https://youtu.be/LRP4WWElvnQ?feature=shared >}}   
 
 ## A. Pengenalan Image Processing
 Manusia mengandalkan penglihatan mereka untuk tugas-tugas mulai dari pengenalan pola hingga naluri bertahan hidup. Kemampuan manusia untuk melakukan analisis yang kompleks dan rinci terhadap suatu karya seni berdasarkan input visual adalah sesuatu yang luar biasa. Namun, sejauh mana manusia dapat melakukan apa yang komputer lakukan dengan sangat cepat masih perlu diteliti.   
@@ -134,4 +136,5 @@ Selanjutnya, menentukan turunan kedua lokal (Hessian) dan nilai eigen-nya. Untuk
 - Filter median efektif dalam menghilangkan noise salt-and-pepper.
 - Filter turunan pertama yang paling banyak digunakan adalah Sobel, Prewitt, dan Canny.
 -  Baik Laplacian maupun LoG adalah filter turunan kedua yang populer. Laplacian sangat sensitif terhadap noise. Pada LoG, Gaussian menghaluskan gambar sehingga noise dari Laplacian dapat dikompensasi. Namun, LoG mengalami efek 'spaghetti'. (*Efek 'spaghetti' merujuk pada hasil filter LoG yang menghasilkan garis-garis tipis seperti spageti yang melintang di sekitar tepi objek dalam gambar. Efek ini terjadi karena penggunaan kernel LoG yang besar atau parameter yang tidak sesuai, yang mengakibatkan respons yang berlebihan dan menciptakan garis-garis halus yang terlalu banyak pada tepi objek dalam gambar. Hasilnya adalah gambar yang terdistorsi dan sulit diinterpretasikan dengan jelas)
-- Filter Frangi digunakan untuk mendeteksi struktur yang mirip dengan pembuluh darah.     
+- Filter Frangi digunakan untuk mendeteksi struktur yang mirip dengan pembuluh darah.      
+

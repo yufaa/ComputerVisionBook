@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computer Vision - 4 Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning (MobileNetV2)</title>
+<title>Computer Vision - Studi Kasus 4</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./daftar_studi_kasus.html"><b> Studi Kasus </b></a></li><li class="breadcrumb-item"><a href="./Studi_Kasus_4.html">4 Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning (MobileNetV2)</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./daftar_studi_kasus.html"><b> Studi Kasus </b></a></li><li class="breadcrumb-item"><a href="./Studi_Kasus_4.html">Studi Kasus 4</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,6 +175,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">4 Feature Extraction and Matching</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_Konsep_Dasar_Machine_Learning_dan_Deep_Learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 Konsep Dasar Machine Learning dan Deep Learning dalam Klasifikasi Objek</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_Evaluasi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 Metode Evaluasi dalam Computer Vision</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -189,25 +201,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Studi_Kasus_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 Sistem Klasifikasi Gambar</span></a>
+ <span class="menu-text">Studi Kasus 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Studi_Kasus_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 Sistem Deteksi dan Pengenalan Wajah</span></a>
+ <span class="menu-text">Studi Kasus 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Studi_Kasus_3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 Sistem Klasifikasi berbasis Video Tracking</span></a>
+ <span class="menu-text">Studi Kasus 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Studi_Kasus_4.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">4 Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning (MobileNetV2)</span></a>
+ <span class="menu-text">Studi Kasus 4</span></a>
   </div>
 </li>
       </ul>
@@ -255,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">4 Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning (MobileNetV2)</h1>
+<h1 class="title">Studi Kasus 4</h1>
 </div>
 
 
@@ -270,6 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<p><strong>4 Sistem Deteksi dan Pengenalan Objek Wajah berbasis Transfer Learning (MobileNetV2)</strong></p>
 <p>latihan yang dipelajari meliputi:</p>
 <ol type="1">
 <li>preprocessing</li>
@@ -578,6 +591,18 @@ Note
 <span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>key_found <span class="op">=</span> [key <span class="cf">for</span> key, value <span class="kw">in</span> label_dict.items() <span class="cf">if</span> value <span class="op">==</span> hasil] <span class="co">#dapatkan namanya</span></span>
 <span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"prediksinya: </span><span class="sc">{</span>key_found<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The predicted image is : </span><span class="sc">{</span><span class="bu">str</span>(hasil)<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>key_found<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="text-align:center">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Asset/test_knn.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="Asset/test_knn2.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
 <p>ukuran gambar test (1, 224, 224, 3)<br>
 nilai probabilitas [[4.8450978e-08 9.5532369e-07 9.9999905e-01]]<br>
 Kirei = 4.845097834049739e-06%<br>
@@ -649,6 +674,9 @@ The predicted image is : [2] -&gt; [‘Yudha’]</p>
 <span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>cap.release()</span>
 <span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>cv2.destroyAllWindows()</span>
 <span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>cv2.waitKey(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="text-align:center">
+<p><img src="Asset/test_tflearning.png" class="img-fluid"></p>
+</div>
 </section>
 <section id="menggunakan-input-video" class="level3">
 <h3 class="anchored" data-anchor-id="menggunakan-input-video">Menggunakan Input Video</h3>
@@ -699,6 +727,9 @@ The predicted image is : [2] -&gt; [‘Yudha’]</p>
 <span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>cap.release()</span>
 <span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>cv2.destroyAllWindows()</span>
 <span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>cv2.waitKey(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="text-align:center">
+<p><img src="Asset/testtflearning_input.png" class="img-fluid"></p>
+</div>
 
 
 </section>
@@ -1056,7 +1087,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Studi_Kasus_3.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">3 Sistem Klasifikasi berbasis Video Tracking</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Studi Kasus 3</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

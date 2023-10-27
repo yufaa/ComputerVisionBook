@@ -12,7 +12,10 @@ book:
         - 1_Pengenalan_Computer_Vision_dan_Python.qmd
         - 2_Python.qmd
         - 3_Dasar_dasar_Image_Processing.qmd
-        - 4_Feature_Extraction_and_Matching.qmd
+        - 4_Feature_Extraction_and_Matching.qmd  
+        - 5_Konsep_Dasar_Machine_Learning_dan_Deep_Learning.qmd  
+        - 6_Evaluasi.qmd
+        
     - part: daftar_studi_kasus.qmd
       chapters:
         - Studi_Kasus_1.qmd

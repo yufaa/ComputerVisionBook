@@ -1,4 +1,6 @@
-# 3 Sistem Klasifikasi berbasis Video Tracking   {.unnumbered}    
+# Studi Kasus 3  {.unnumbered}
+
+**Sistem Klasifikasi berbasis Video Tracking**      
 
 Pada Studi Kasus ini kita akan menambahkan kode untuk melakukan **Hyperparameter Tunning** dan klasifikasi berbasis **Video Tracking** pada dua project yang berbeda, yaitu:   
 
@@ -185,7 +187,7 @@ Pelajari lebih dalam mengenai parameter-parameter yang terdapat pada fungsi **tr
 
 ### Klasifikasi KNN   
 
-**K-Fold untuk model Terbaik**   
+**K-Fold untuk model Terbaik**     
 <div style="text-align:center">
 ![](https://i.stack.imgur.com/z6lTD.png)
 </div>    
@@ -418,7 +420,14 @@ while (cap.isOpened()):
 cap.release()
 cv2.destroyAllWindows()
 cv2.waitKey(1)
-```      
+```        
+
+<div style="text-align:center">     
+
+![](Asset/testhaarknn.png)    
+
+</div> 
+
 
 
 ## Haar - SIFT - BoVW - KNN    
@@ -905,7 +914,13 @@ while (cap.isOpened()):
 cap.release()
 cv2.destroyAllWindows()
 cv2.waitKey(1)  
-```    
+```      
+
+<div style="text-align:center">     
+
+![](Asset/testhaar_sift_knn.png)    
+
+</div> 
 
 
 #### Menggunakan Input Video  
@@ -988,3 +1003,9 @@ cap.release()
 cv2.destroyAllWindows()
 cv2.waitKey(1)
 ```
+
+<div style="text-align:center">     
+
+![](Asset/testhaar_sift_knn_inputvideo.png)    
+
+</div> 

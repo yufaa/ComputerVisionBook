@@ -1,4 +1,4 @@
-# 1 Sistem Klasifikasi Gambar {.unnumbered}
+# Studi Kasus 1 {.unnumbered}
 
 **Sistem Klasifikasi Wajah dengan Fitur Berbasis SIFT, Bag of Visual Words, dan  Klasifikasi KNN**  
 

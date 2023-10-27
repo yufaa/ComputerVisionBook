@@ -1,6 +1,8 @@
 # 1 Pengenalan Computer Vision dan Python {.unnumbered}  
 
-Chapter ini membahas pengenalan Computer Vision dan Python dalam konteks visi komputer. Bagian pertama menjelaskan konsep dasar Computer Vision, tantangan yang dihadapinya, dan manfaatnya dalam berbagai bidang industri. Bagian kedua memperkenalkan Python sebagai bahasa pemrograman yang kuat dan populer dalam visi komputer, dengan pustaka seperti NumPy dan OpenCV yang mendukung pengembangan solusi analisis gambar dan video. Bagian selanjutnya membahas penggunaan Python untuk visi komputer, termasuk membaca gambar, melakukan operasi pada gambar, dan menggunakan algoritma untuk mengenali objek. Dilanjutkan dengan latihan praktik untuk mengaplikasikan konsep yang telah dipelajari. Terakhir, terdapat sesi tanya jawab dan diskusi untuk berinteraksi, mengatasi tantangan, dan berbagi wawasan tentang visi komputer dan penggunaan Python dalam bidang tersebut.  
+Chapter ini membahas pengenalan Computer Vision dan Python dalam konteks visi komputer. Bagian pertama menjelaskan konsep dasar Computer Vision, tantangan yang dihadapinya, dan manfaatnya dalam berbagai bidang industri. Bagian kedua memperkenalkan Python sebagai bahasa pemrograman yang kuat dan populer dalam visi komputer, dengan pustaka seperti NumPy dan OpenCV yang mendukung pengembangan solusi analisis gambar dan video. Bagian selanjutnya membahas penggunaan Python untuk visi komputer, termasuk membaca gambar, melakukan operasi pada gambar, dan menggunakan algoritma untuk mengenali objek. Dilanjutkan dengan latihan praktik untuk mengaplikasikan konsep yang telah dipelajari. Terakhir, terdapat sesi tanya jawab dan diskusi untuk berinteraksi, mengatasi tantangan, dan berbagi wawasan tentang visi komputer dan penggunaan Python dalam bidang tersebut.   
+
+{{< video https://youtu.be/m4z3h9QimhA?feature=shared >}}  
 
 ## A. Pengenalan Computer Vision  
 
@@ -63,7 +65,9 @@ Sementara itu, TensorFlow dan PyTorch adalah kerangka kerja pembelajaran mesin y
 Python juga memiliki kelebihan dalam penanganan data visual. Dengan Python, pengguna dapat dengan mudah membaca, menulis, dan memanipulasi gambar dan video dalam berbagai format. Python juga mendukung operasi pra-pemrosesan yang diperlukan untuk data visual, seperti perubahan ukuran gambar, normalisasi, dan augmentasi data.    
 
 Terakhir, Python juga menawarkan kemudahan dalam visualisasi data dan hasil. Dengan menggunakan perpustakaan seperti Matplotlib dan Seaborn, pengguna dapat dengan mudah memvisualisasikan data dan hasil dalam berbagai format.  
-Dengan kata lain, dengan Python, computer vision menjadi lebih mudah diakses dan dipahami, baik oleh profesional maupun pemula. Python telah membuktikan dirinya sebagai bahasa pemrograman yang kuat dan fleksibel yang dapat mendukung berbagai tugas dan proyek dalam bidang computer vision.    
+Dengan kata lain, dengan Python, computer vision menjadi lebih mudah diakses dan dipahami, baik oleh profesional maupun pemula. Python telah membuktikan dirinya sebagai bahasa pemrograman yang kuat dan fleksibel yang dapat mendukung berbagai tugas dan proyek dalam bidang computer vision.      
+
+
 
 ## D. Latihan Praktik
 Python merupakan bahasa pemrograman yang ideal untuk belajar dan menerapkan visi komputer. Berikut adalah beberapa latihan praktik yang dapat Anda lakukan untuk meningkatkan keterampilan visi komputer Anda menggunakan Python.    
@@ -214,23 +218,6 @@ A: Object Detection adalah teknologi dalam visi komputer yang mengidentifikasi a
 Q: Apakah memungkinkan untuk melakukan Computer Vision tanpa Machine Learning?  
 
 A: Ya, memang memungkinkan untuk melakukan tugas-tugas visi komputer tertentu tanpa menggunakan Machine Learning. Misalnya, teknik seperti pengolahan gambar, deteksi tepi, dan thresholding bisa digunakan untuk ekstraksi fitur dan pemrosesan gambar dasar. Namun, untuk tugas yang lebih kompleks seperti deteksi objek, pengenalan wajah, dan analisis video, biasanya diperlukan teknik Machine Learning atau Deep Learning.  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
